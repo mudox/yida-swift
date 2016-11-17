@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--自定义的展现与过渡-->
+        <scene sceneID="N0V-2k-wpq">
+            <objects>
+                <tableViewController storyboardIdentifier="Customize View Controller Presentation And Transition" id="Xgh-pU-iSc" customClass="CustomPresentationTableViewController" customModule="YiDaIOSSwiftPractices" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Ki0-if-1Mo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="25l-CL-tMi">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="152" id="xDo-Am-d3u">
+                                        <rect key="frame" x="0.0" y="99" width="375" height="152"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xDo-Am-d3u" id="d5u-H9-ffL">
+                                            <frame key="frameInset" width="375" height="152"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="滑入展现控制器" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QRf-9w-dXx">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" momentary="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rFq-rW-gyX">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="28" id="SQS-ZW-yKS"/>
+                                                    </constraints>
+                                                    <segments>
+                                                        <segment title="左"/>
+                                                        <segment title="上"/>
+                                                        <segment title="中"/>
+                                                        <segment title="下"/>
+                                                        <segment title="右"/>
+                                                    </segments>
+                                                    <connections>
+                                                        <action selector="slideInSegmentedControlValueChanged:" destination="Xgh-pU-iSc" eventType="valueChanged" id="M8r-Dg-SSS"/>
+                                                    </connections>
+                                                </segmentedControl>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="自适应横屏" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bUt-ex-5EC">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="嵌入导航栏控制器" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j6L-R4-bj7">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="I81-bv-AnN">
+                                                    <connections>
+                                                        <action selector="embedInNavigationControllerChanged:" destination="Xgh-pU-iSc" eventType="valueChanged" id="WOd-CK-vtf"/>
+                                                    </connections>
+                                                </switch>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Pll-Fi-1RS">
+                                                    <connections>
+                                                        <action selector="adaptToLandscapeChanged:" destination="Xgh-pU-iSc" eventType="valueChanged" id="8wh-OS-W7R"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Pll-Fi-1RS" firstAttribute="trailing" secondItem="d5u-H9-ffL" secondAttribute="trailingMargin" id="3mQ-MN-E5a"/>
+                                                <constraint firstItem="Pll-Fi-1RS" firstAttribute="top" secondItem="rFq-rW-gyX" secondAttribute="bottom" constant="8" symbolic="YES" id="8kZ-Ng-h89"/>
+                                                <constraint firstItem="rFq-rW-gyX" firstAttribute="top" secondItem="QRf-9w-dXx" secondAttribute="bottom" constant="8" symbolic="YES" id="Ad3-dr-jxT"/>
+                                                <constraint firstItem="rFq-rW-gyX" firstAttribute="leading" secondItem="d5u-H9-ffL" secondAttribute="leadingMargin" id="Cq8-oZ-K1E"/>
+                                                <constraint firstItem="j6L-R4-bj7" firstAttribute="leading" secondItem="d5u-H9-ffL" secondAttribute="leadingMargin" id="DCn-Rh-Uno"/>
+                                                <constraint firstItem="bUt-ex-5EC" firstAttribute="leading" secondItem="d5u-H9-ffL" secondAttribute="leadingMargin" id="HK1-Xy-8HV"/>
+                                                <constraint firstItem="QRf-9w-dXx" firstAttribute="leading" secondItem="d5u-H9-ffL" secondAttribute="leadingMargin" id="Hiw-lc-sKU"/>
+                                                <constraint firstItem="QRf-9w-dXx" firstAttribute="trailing" secondItem="d5u-H9-ffL" secondAttribute="trailingMargin" id="RUc-zK-0gt"/>
+                                                <constraint firstItem="QRf-9w-dXx" firstAttribute="top" secondItem="d5u-H9-ffL" secondAttribute="topMargin" id="RbC-4c-efV"/>
+                                                <constraint firstItem="I81-bv-AnN" firstAttribute="top" secondItem="Pll-Fi-1RS" secondAttribute="bottom" constant="8" symbolic="YES" id="XW3-Yc-c8i"/>
+                                                <constraint firstItem="Pll-Fi-1RS" firstAttribute="trailing" secondItem="d5u-H9-ffL" secondAttribute="trailingMargin" id="aK6-Dm-gzn"/>
+                                                <constraint firstItem="bUt-ex-5EC" firstAttribute="centerY" secondItem="Pll-Fi-1RS" secondAttribute="centerY" id="e1D-yM-68E"/>
+                                                <constraint firstItem="rFq-rW-gyX" firstAttribute="trailing" secondItem="d5u-H9-ffL" secondAttribute="trailingMargin" id="gtQ-0B-ENo"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="I81-bv-AnN" secondAttribute="bottom" id="mg5-OI-jMX"/>
+                                                <constraint firstItem="j6L-R4-bj7" firstAttribute="centerY" secondItem="I81-bv-AnN" secondAttribute="centerY" id="on8-bX-LBT"/>
+                                                <constraint firstItem="I81-bv-AnN" firstAttribute="trailing" secondItem="d5u-H9-ffL" secondAttribute="trailingMargin" id="yid-Wp-eDo"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="Xgh-pU-iSc" id="DZD-hv-gRY"/>
+                            <outlet property="delegate" destination="Xgh-pU-iSc" id="OQn-x0-3Hk"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="自定义的展现与过渡" id="sX3-Vn-BpQ"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="adaptToLandscapeSwitch" destination="Pll-Fi-1RS" id="wEL-dh-ig1"/>
+                        <outlet property="embedInNavigationControllerLabel" destination="j6L-R4-bj7" id="ozg-hC-OjN"/>
+                        <outlet property="embedInNavigationControllerSwitch" destination="I81-bv-AnN" id="2bW-9C-2fW"/>
+                        <outlet property="slideInDirectionSegmentedControl" destination="rFq-rW-gyX" id="Fzp-US-s6r"/>
+                        <segue destination="TPi-Un-Onh" kind="presentation" identifier="Slide From Bottom" id="wuy-XO-LpI"/>
+                        <segue destination="TPi-Un-Onh" kind="presentation" identifier="Slide From Top" id="JcM-pX-exS"/>
+                        <segue destination="TPi-Un-Onh" kind="presentation" identifier="Slide From Right" id="Y5h-bp-GuQ"/>
+                        <segue destination="TPi-Un-Onh" kind="presentation" identifier="Slide From Left" id="xtG-C4-k2k"/>
+                        <segue destination="TPi-Un-Onh" kind="presentation" identifier="Slide To Center" id="B6e-YJ-ERg"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jxu-i0-1wD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-183.19999999999999" y="226.23688155922042"/>
+        </scene>
+        <!--Custom Presented View Controller-->
+        <scene sceneID="fH3-0g-Q7J">
+            <objects>
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="TPi-Un-Onh" customClass="CustomPresentedViewController" customModule="YiDaIOSSwiftPractices" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="z97-KS-7Bc"/>
+                        <viewControllerLayoutGuide type="bottom" id="gRX-ZM-dSW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ouC-l6-RwC">
+                        <rect key="frame" x="0.0" y="0.0" width="280" height="160"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击左边灰色部分撤下本视图" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pzr-q5-oXe">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.9529411793" green="0.68627452850000004" blue="0.13333334029999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="pzr-q5-oXe" secondAttribute="trailing" id="GeW-g4-Zvu"/>
+                            <constraint firstItem="pzr-q5-oXe" firstAttribute="top" secondItem="ouC-l6-RwC" secondAttribute="topMargin" id="VjH-7a-onx"/>
+                            <constraint firstItem="pzr-q5-oXe" firstAttribute="leading" secondItem="ouC-l6-RwC" secondAttribute="leadingMargin" id="ZWI-iG-6zh"/>
+                            <constraint firstItem="gRX-ZM-dSW" firstAttribute="top" secondItem="pzr-q5-oXe" secondAttribute="bottom" id="dys-IZ-amR"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="3ER-kA-0Zh"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="280" height="160"/>
+                    <connections>
+                        <outlet property="labelView" destination="pzr-q5-oXe" id="WSp-aT-Ep5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7S9-sk-DSz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="758" y="44"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="JcM-pX-exS"/>
+    </inferredMetricsTieBreakers>
+</document>

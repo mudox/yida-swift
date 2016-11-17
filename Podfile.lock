@@ -1,0 +1,49 @@
+PODS:
+  - Alamofire (4.1.0)
+  - CocoaLumberjack/Core (3.0.0)
+  - CocoaLumberjack/Default (3.0.0):
+    - CocoaLumberjack/Core
+  - CocoaLumberjack/Extensions (3.0.0):
+    - CocoaLumberjack/Default
+  - CocoaLumberjack/Swift (3.0.0):
+    - CocoaLumberjack/Extensions
+  - EarlGrey (1.5.3)
+  - Gloss (1.1.0)
+  - pop (1.0.9)
+  - PySwiftyRegex (1.0.0)
+  - RxCocoa (3.0.1):
+    - RxSwift (~> 3.0)
+  - RxSwift (3.0.1)
+  - SwiftMessages (3.0.3)
+  - SwiftValidators (5.1.1)
+  - SwiftyJSON (3.1.1)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.0)
+  - CocoaLumberjack/Swift
+  - EarlGrey
+  - Gloss (~> 1.0)
+  - pop (~> 1.0)
+  - PySwiftyRegex
+  - RxCocoa
+  - RxSwift
+  - SwiftMessages
+  - SwiftValidators
+  - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: e266cf991b933498df791e645e0d8ac294492153
+  CocoaLumberjack: c823149bccc5519a9447aeb433be7b1212a7d6a5
+  EarlGrey: c45603e76cda710a29228a790d5139f404b908ea
+  Gloss: a8340c124ff69c5d1c12e06c252373f4a16d2958
+  pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
+  PySwiftyRegex: 9f53cc95dcc4b5c91f050487d6dba3e4aac298ed
+  RxCocoa: 15a52fc590dcc700cb4a690a633b5c5184ce3a78
+  RxSwift: af5680055c4ad04480189c52d28385b1029493a6
+  SwiftMessages: 3c6fd0375009d69ff35a7656bae0e31b4d8a930d
+  SwiftValidators: 3be5c8f80287fe4960d1b053519b22f304804a00
+  SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
+
+PODFILE CHECKSUM: 6bf9cb0ba24c78e3f73f57ba19e297cc55e61a2b
+
+COCOAPODS: 1.2.0.beta.1

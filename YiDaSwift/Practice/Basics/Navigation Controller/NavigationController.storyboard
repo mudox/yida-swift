@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--第 # 级视图-->
+        <scene sceneID="6F2-pv-G9t">
+            <objects>
+                <viewController storyboardIdentifier="Navigation Controller Manages Content View Controllers" id="WMs-3W-wzF" customClass="NavigationContentViewController" customModule="YiDaIOSSwiftPractices" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gnt-sj-Few"/>
+                        <viewControllerLayoutGuide type="bottom" id="gpu-Ca-C2y"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ABt-wV-05v">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nFj-dm-vQN">
+                                <color key="backgroundColor" red="0.83470532720000001" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="300"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="按住视图中间任意处并向右平移可弹出当前视图" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nAB-fj-rG0">
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="0.79633989726027399" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nFj-dm-vQN" firstAttribute="top" secondItem="gnt-sj-Few" secondAttribute="bottom" id="QOQ-y2-6Zv"/>
+                            <constraint firstItem="gpu-Ca-C2y" firstAttribute="top" secondItem="nFj-dm-vQN" secondAttribute="bottom" id="Rem-sE-UeC"/>
+                            <constraint firstAttribute="trailing" secondItem="nFj-dm-vQN" secondAttribute="trailing" id="bDG-G8-rTs"/>
+                            <constraint firstItem="nAB-fj-rG0" firstAttribute="leading" secondItem="ABt-wV-05v" secondAttribute="leadingMargin" constant="30" id="eMv-vI-C6g"/>
+                            <constraint firstItem="nFj-dm-vQN" firstAttribute="leading" secondItem="ABt-wV-05v" secondAttribute="leading" id="hX4-TU-rJG"/>
+                            <constraint firstItem="nAB-fj-rG0" firstAttribute="top" secondItem="gnt-sj-Few" secondAttribute="bottom" constant="60" id="jCs-1L-Jgp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nAB-fj-rG0" secondAttribute="trailing" constant="30" id="xkD-EZ-R6L"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="第 # 级视图" id="Sbv-Np-v59">
+                        <barButtonItem key="backBarButtonItem" title=" " id="884-nL-6fd"/>
+                        <barButtonItem key="rightBarButtonItem" title="跳转" id="qKO-Vq-bHH">
+                            <connections>
+                                <action selector="jumpButtonTapped:" destination="WMs-3W-wzF" id="gK0-2M-z8x"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="indexLabel" destination="nFj-dm-vQN" id="muC-To-gxi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lwZ-qE-8o9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1060" y="-167.76611694152925"/>
+        </scene>
+        <!--导航栏-->
+        <scene sceneID="K9h-bx-j3V">
+            <objects>
+                <tableViewController storyboardIdentifier="Customize Navigation Controller" id="h4j-Pm-O5G" customClass="CustomNavigationControllerTableViewController" customModule="YiDaIOSSwiftPractices" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="NvJ-ch-KU0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="自定义导航栏" id="ygf-gE-Q28">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="qMg-2U-gXE">
+                                        <rect key="frame" x="0.0" y="120" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qMg-2U-gXE" id="ytP-Zn-ksB">
+                                            <frame key="frameInset" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="导航栏提示：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0l-fR-nFg">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9z8-L7-1k9">
+                                                    <connections>
+                                                        <action selector="promptSwitchChanged:" destination="h4j-Pm-O5G" eventType="valueChanged" id="4Ny-2s-YIe"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Y0l-fR-nFg" firstAttribute="leading" secondItem="ytP-Zn-ksB" secondAttribute="leadingMargin" id="beX-QM-z7r"/>
+                                                <constraint firstItem="9z8-L7-1k9" firstAttribute="centerY" secondItem="ytP-Zn-ksB" secondAttribute="centerY" id="fO4-Zy-8lC"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="9z8-L7-1k9" secondAttribute="trailing" id="qRV-2U-VzO"/>
+                                                <constraint firstItem="Y0l-fR-nFg" firstAttribute="centerY" secondItem="ytP-Zn-ksB" secondAttribute="centerY" id="yl5-Dl-7BZ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Gox-Rs-Dhl">
+                                        <rect key="frame" x="0.0" y="164" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Gox-Rs-Dhl" id="FQx-ff-Cg9">
+                                            <frame key="frameInset" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="UNV-y0-K5N">
+                                                    <segments>
+                                                        <segment title="默认"/>
+                                                        <segment title="黑色"/>
+                                                    </segments>
+                                                    <connections>
+                                                        <action selector="navbarStyleChanged:" destination="h4j-Pm-O5G" eventType="valueChanged" id="MeM-nS-C3K"/>
+                                                    </connections>
+                                                </segmentedControl>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="导航栏样式：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0TX-Mn-yIA">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="0TX-Mn-yIA" firstAttribute="centerY" secondItem="FQx-ff-Cg9" secondAttribute="centerY" id="0aL-F0-Z5F"/>
+                                                <constraint firstItem="UNV-y0-K5N" firstAttribute="centerY" secondItem="FQx-ff-Cg9" secondAttribute="centerY" id="Uxr-Wi-ANM"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="UNV-y0-K5N" secondAttribute="trailing" id="XTt-OI-C9O"/>
+                                                <constraint firstItem="0TX-Mn-yIA" firstAttribute="leading" secondItem="FQx-ff-Cg9" secondAttribute="leadingMargin" id="lWv-eM-0VY"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="REq-gG-E3X">
+                                        <rect key="frame" x="0.0" y="208" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="REq-gG-E3X" id="tDE-tQ-5a3">
+                                            <frame key="frameInset" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="bMu-uN-Ukf">
+                                                    <segments>
+                                                        <segment title="默认"/>
+                                                        <segment title="颜色"/>
+                                                        <segment title="图片"/>
+                                                    </segments>
+                                                    <connections>
+                                                        <action selector="navbarBackgroundChanged:" destination="h4j-Pm-O5G" eventType="valueChanged" id="b2I-i9-j4H"/>
+                                                    </connections>
+                                                </segmentedControl>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="导航栏背景：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uf0-vC-QvT">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Uf0-vC-QvT" firstAttribute="leading" secondItem="tDE-tQ-5a3" secondAttribute="leadingMargin" id="5de-Xp-WJA"/>
+                                                <constraint firstItem="bMu-uN-Ukf" firstAttribute="centerY" secondItem="tDE-tQ-5a3" secondAttribute="centerY" id="K12-rG-eH1"/>
+                                                <constraint firstItem="Uf0-vC-QvT" firstAttribute="centerY" secondItem="tDE-tQ-5a3" secondAttribute="centerY" id="dNa-wL-y5M"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="bMu-uN-Ukf" secondAttribute="trailing" id="ddj-nw-RBc"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="4dI-zG-5BD">
+                                        <rect key="frame" x="0.0" y="252" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4dI-zG-5BD" id="fea-i4-Khd">
+                                            <frame key="frameInset" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="1Wi-OK-4sf">
+                                                    <segments>
+                                                        <segment title="文字"/>
+                                                        <segment title="图片"/>
+                                                        <segment title="自定义视图"/>
+                                                    </segments>
+                                                    <connections>
+                                                        <action selector="navbarTitleChanged:" destination="h4j-Pm-O5G" eventType="valueChanged" id="8Fl-Ff-T4K"/>
+                                                    </connections>
+                                                </segmentedControl>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="导航栏标题：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7B-d1-rhI">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="1Wi-OK-4sf" secondAttribute="trailing" id="LY1-2A-e3o"/>
+                                                <constraint firstItem="a7B-d1-rhI" firstAttribute="centerY" secondItem="fea-i4-Khd" secondAttribute="centerY" id="Q5h-cD-L1G"/>
+                                                <constraint firstItem="1Wi-OK-4sf" firstAttribute="centerY" secondItem="fea-i4-Khd" secondAttribute="centerY" id="cM0-V7-NGe"/>
+                                                <constraint firstItem="a7B-d1-rhI" firstAttribute="leading" secondItem="fea-i4-Khd" secondAttribute="leadingMargin" id="los-a1-C3r"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="191" id="jyj-yt-YTx">
+                                        <rect key="frame" x="0.0" y="296" width="375" height="191"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jyj-yt-YTx" id="Lfw-tZ-d75">
+                                            <frame key="frameInset" width="375" height="191"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="导航栏按钮项：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQn-EX-EVm">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="左" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qj2-xW-vhB">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="隐藏返回按钮：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AoL-iL-0sb">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="左边栏按钮与返回按钮共存：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="on7-Pg-zdC">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="cJW-rb-d7g">
+                                                    <segments>
+                                                        <segment title="系统"/>
+                                                        <segment title="文字"/>
+                                                        <segment title="图片"/>
+                                                        <segment title="视图"/>
+                                                    </segments>
+                                                    <connections>
+                                                        <action selector="navbarLeftButtonItemStyleChanged:" destination="h4j-Pm-O5G" eventType="valueChanged" id="qaS-g9-afk"/>
+                                                    </connections>
+                                                </segmentedControl>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="BSc-dV-f0H">
+                                                    <segments>
+                                                        <segment title="0" width="28"/>
+                                                        <segment title="1" width="28"/>
+                                                        <segment title="2" width="28"/>
+                                                    </segments>
+                                                    <connections>
+                                                        <action selector="navbarLeftButtonItemCountChanged:" destination="h4j-Pm-O5G" eventType="valueChanged" id="DM5-5M-Phc"/>
+                                                    </connections>
+                                                </segmentedControl>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="右" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gih-xe-cso">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="DEO-Fa-dwK">
+                                                    <segments>
+                                                        <segment title="系统"/>
+                                                        <segment title="文字"/>
+                                                        <segment title="图片"/>
+                                                        <segment title="视图"/>
+                                                    </segments>
+                                                    <connections>
+                                                        <action selector="navRightBarButtonItemStyleChanged:" destination="h4j-Pm-O5G" eventType="valueChanged" id="dL4-SF-vGL"/>
+                                                    </connections>
+                                                </segmentedControl>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="y0n-Hj-xSb">
+                                                    <connections>
+                                                        <action selector="navbarHideBackButtonChanged:" destination="h4j-Pm-O5G" eventType="valueChanged" id="SwK-ch-iCU"/>
+                                                    </connections>
+                                                </switch>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="MIo-is-zq1">
+                                                    <connections>
+                                                        <action selector="navbarCoexistsWithBackButtonChanged:" destination="h4j-Pm-O5G" eventType="valueChanged" id="YeJ-v7-cX5"/>
+                                                    </connections>
+                                                </switch>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="VUD-tk-M6Q">
+                                                    <segments>
+                                                        <segment title="0" width="28"/>
+                                                        <segment title="1" width="28"/>
+                                                        <segment title="2" width="28"/>
+                                                    </segments>
+                                                    <connections>
+                                                        <action selector="navbarRightBarButtonItemCountChanged:" destination="h4j-Pm-O5G" eventType="valueChanged" id="DVq-qx-7mQ"/>
+                                                    </connections>
+                                                </segmentedControl>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="cJW-rb-d7g" firstAttribute="leading" secondItem="Qj2-xW-vhB" secondAttribute="trailing" constant="8" symbolic="YES" id="1ou-O5-OK8"/>
+                                                <constraint firstItem="MIo-is-zq1" firstAttribute="top" secondItem="y0n-Hj-xSb" secondAttribute="bottom" constant="8" symbolic="YES" id="48G-2n-3tu"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="BSc-dV-f0H" secondAttribute="trailing" id="9Ek-2c-xoT"/>
+                                                <constraint firstItem="y0n-Hj-xSb" firstAttribute="centerY" secondItem="AoL-iL-0sb" secondAttribute="centerY" id="ATB-L1-Ntb"/>
+                                                <constraint firstItem="MIo-is-zq1" firstAttribute="trailing" secondItem="Lfw-tZ-d75" secondAttribute="trailingMargin" id="Bo7-5X-zjm"/>
+                                                <constraint firstItem="cJW-rb-d7g" firstAttribute="top" secondItem="JQn-EX-EVm" secondAttribute="bottom" constant="8" symbolic="YES" id="EET-1g-99U"/>
+                                                <constraint firstItem="JQn-EX-EVm" firstAttribute="leading" secondItem="Lfw-tZ-d75" secondAttribute="leadingMargin" id="Fer-WA-WvM"/>
+                                                <constraint firstItem="cJW-rb-d7g" firstAttribute="baseline" secondItem="Qj2-xW-vhB" secondAttribute="baseline" id="I2Y-wE-2x6"/>
+                                                <constraint firstItem="MIo-is-zq1" firstAttribute="centerY" secondItem="on7-Pg-zdC" secondAttribute="centerY" id="NQI-Uq-xMT"/>
+                                                <constraint firstItem="DEO-Fa-dwK" firstAttribute="leading" secondItem="gih-xe-cso" secondAttribute="trailing" constant="8" symbolic="YES" id="Nib-1G-Rdq"/>
+                                                <constraint firstItem="VUD-tk-M6Q" firstAttribute="centerY" secondItem="DEO-Fa-dwK" secondAttribute="centerY" id="OL1-Ce-VFP"/>
+                                                <constraint firstItem="y0n-Hj-xSb" firstAttribute="leading" secondItem="AoL-iL-0sb" secondAttribute="trailing" constant="8" symbolic="YES" id="Rp6-DF-kUZ"/>
+                                                <constraint firstItem="JQn-EX-EVm" firstAttribute="top" secondItem="Lfw-tZ-d75" secondAttribute="topMargin" constant="5" id="WOa-xn-KGR"/>
+                                                <constraint firstItem="MIo-is-zq1" firstAttribute="leading" secondItem="on7-Pg-zdC" secondAttribute="trailing" constant="8" symbolic="YES" id="Xxe-jR-dAM"/>
+                                                <constraint firstItem="BSc-dV-f0H" firstAttribute="centerY" secondItem="cJW-rb-d7g" secondAttribute="centerY" id="YVJ-Q1-T9i"/>
+                                                <constraint firstItem="Qj2-xW-vhB" firstAttribute="leading" secondItem="Lfw-tZ-d75" secondAttribute="leadingMargin" constant="10" id="dn1-dc-VRB"/>
+                                                <constraint firstItem="VUD-tk-M6Q" firstAttribute="trailing" secondItem="Lfw-tZ-d75" secondAttribute="trailingMargin" id="jA0-iE-ikR"/>
+                                                <constraint firstItem="y0n-Hj-xSb" firstAttribute="trailing" secondItem="Lfw-tZ-d75" secondAttribute="trailingMargin" id="lcF-GX-mQt"/>
+                                                <constraint firstItem="DEO-Fa-dwK" firstAttribute="top" secondItem="on7-Pg-zdC" secondAttribute="bottom" constant="16" id="ppl-k6-y2P"/>
+                                                <constraint firstItem="DEO-Fa-dwK" firstAttribute="baseline" secondItem="gih-xe-cso" secondAttribute="baseline" id="tZD-Kl-LCO"/>
+                                                <constraint firstItem="gih-xe-cso" firstAttribute="leading" secondItem="Lfw-tZ-d75" secondAttribute="leadingMargin" constant="10" id="wKT-6k-jF1"/>
+                                                <constraint firstItem="y0n-Hj-xSb" firstAttribute="top" secondItem="BSc-dV-f0H" secondAttribute="bottom" constant="8" symbolic="YES" id="xQ3-sI-fJw"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="自定义工具栏" id="4FB-wp-Su7">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="coG-uV-2yy">
+                                        <rect key="frame" x="0.0" y="544" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="coG-uV-2yy" id="VFA-37-XgR">
+                                            <frame key="frameInset" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="peI-bW-iOb">
+                                                    <segments>
+                                                        <segment title="默认"/>
+                                                        <segment title="黑色"/>
+                                                    </segments>
+                                                    <connections>
+                                                        <action selector="toolbarStyleChanged:" destination="h4j-Pm-O5G" eventType="valueChanged" id="kwY-Sa-WEM"/>
+                                                    </connections>
+                                                </segmentedControl>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="工具栏样式：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vmn-2B-X8D">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Vmn-2B-X8D" firstAttribute="leading" secondItem="VFA-37-XgR" secondAttribute="leadingMargin" id="6gJ-yG-yQm"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="peI-bW-iOb" secondAttribute="trailing" id="9HN-Id-5yW"/>
+                                                <constraint firstItem="Vmn-2B-X8D" firstAttribute="leading" secondItem="VFA-37-XgR" secondAttribute="leadingMargin" id="J0q-A7-Jad"/>
+                                                <constraint firstItem="Vmn-2B-X8D" firstAttribute="centerY" secondItem="VFA-37-XgR" secondAttribute="centerY" id="kVg-ep-HLg"/>
+                                                <constraint firstItem="peI-bW-iOb" firstAttribute="centerY" secondItem="VFA-37-XgR" secondAttribute="centerY" id="mBM-24-Vwl"/>
+                                                <constraint firstItem="Vmn-2B-X8D" firstAttribute="centerY" secondItem="VFA-37-XgR" secondAttribute="centerY" id="z5A-zQ-tE2"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="b44-B9-rbK">
+                                        <rect key="frame" x="0.0" y="588" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b44-B9-rbK" id="ydZ-Sz-Bfw">
+                                            <frame key="frameInset" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="sdb-pN-6a2">
+                                                    <segments>
+                                                        <segment title="默认"/>
+                                                        <segment title="颜色"/>
+                                                        <segment title="图片"/>
+                                                    </segments>
+                                                    <connections>
+                                                        <action selector="toolbarBackgroundChanged:" destination="h4j-Pm-O5G" eventType="valueChanged" id="Kbr-V2-mO1"/>
+                                                    </connections>
+                                                </segmentedControl>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="工具栏背景：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xap-Ur-hcc">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="sdb-pN-6a2" secondAttribute="trailing" id="DTd-x3-1hy"/>
+                                                <constraint firstItem="sdb-pN-6a2" firstAttribute="centerY" secondItem="ydZ-Sz-Bfw" secondAttribute="centerY" id="EvR-4U-mf4"/>
+                                                <constraint firstItem="xap-Ur-hcc" firstAttribute="leading" secondItem="ydZ-Sz-Bfw" secondAttribute="leadingMargin" id="Nui-4v-EPS"/>
+                                                <constraint firstItem="xap-Ur-hcc" firstAttribute="centerY" secondItem="ydZ-Sz-Bfw" secondAttribute="centerY" id="p77-Wv-dZ4"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="106" id="w6c-yc-4Fk">
+                                        <rect key="frame" x="0.0" y="632" width="375" height="106"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="w6c-yc-4Fk" id="51Z-ne-chA">
+                                            <frame key="frameInset" width="375" height="106"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="frs-sf-4Ha">
+                                                    <segments>
+                                                        <segment title="系统"/>
+                                                        <segment title="文字"/>
+                                                        <segment title="图片"/>
+                                                        <segment title="自定义视图"/>
+                                                    </segments>
+                                                    <connections>
+                                                        <action selector="toolbarItemStyleChanged:" destination="h4j-Pm-O5G" eventType="valueChanged" id="7rV-yw-Rf5"/>
+                                                    </connections>
+                                                </segmentedControl>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="工具栏按钮项：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQq-dx-RMC">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="内容：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJH-mQ-C9y">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="YXU-8l-5h4">
+                                                    <segments>
+                                                        <segment title="布局一"/>
+                                                        <segment title="布局二"/>
+                                                        <segment title="布局三"/>
+                                                    </segments>
+                                                    <connections>
+                                                        <action selector="toolbarItemLayoutChanged:" destination="h4j-Pm-O5G" eventType="valueChanged" id="VZP-Y1-edC"/>
+                                                    </connections>
+                                                </segmentedControl>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="布局：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzs-bF-93N">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="oQq-dx-RMC" firstAttribute="top" secondItem="51Z-ne-chA" secondAttribute="topMargin" id="2fw-U6-WYX"/>
+                                                <constraint firstItem="EJH-mQ-C9y" firstAttribute="leading" secondItem="51Z-ne-chA" secondAttribute="leadingMargin" constant="10" id="Avx-kD-2QY"/>
+                                                <constraint firstItem="YXU-8l-5h4" firstAttribute="trailing" secondItem="51Z-ne-chA" secondAttribute="trailingMargin" id="CM8-dx-2mb"/>
+                                                <constraint firstItem="dzs-bF-93N" firstAttribute="leading" secondItem="51Z-ne-chA" secondAttribute="leadingMargin" constant="10" id="CWE-T4-mX9"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="frs-sf-4Ha" secondAttribute="trailing" id="Cog-xQ-N4w"/>
+                                                <constraint firstItem="frs-sf-4Ha" firstAttribute="centerY" secondItem="EJH-mQ-C9y" secondAttribute="centerY" id="HIW-AB-XSp"/>
+                                                <constraint firstItem="YXU-8l-5h4" firstAttribute="top" secondItem="frs-sf-4Ha" secondAttribute="bottom" constant="8" symbolic="YES" id="Pbn-dQ-U0L"/>
+                                                <constraint firstItem="oQq-dx-RMC" firstAttribute="leading" secondItem="51Z-ne-chA" secondAttribute="leadingMargin" id="YRc-Gr-0xf"/>
+                                                <constraint firstItem="YXU-8l-5h4" firstAttribute="centerY" secondItem="dzs-bF-93N" secondAttribute="centerY" id="Ydu-ek-T1w"/>
+                                                <constraint firstItem="frs-sf-4Ha" firstAttribute="top" secondItem="oQq-dx-RMC" secondAttribute="bottom" constant="8" symbolic="YES" id="gJj-Ru-CTk"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="h4j-Pm-O5G" id="h3W-nn-Gms"/>
+                            <outlet property="delegate" destination="h4j-Pm-O5G" id="NGV-B6-S5Y"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="导航栏" id="K1b-f5-r3Z"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="1000"/>
+                    <connections>
+                        <outlet property="navbarBackgroundSegmentedControl" destination="bMu-uN-Ukf" id="KuF-ip-Vzs"/>
+                        <outlet property="navbarCoexistsWithBackButtonSwitch" destination="MIo-is-zq1" id="FQR-mU-YlL"/>
+                        <outlet property="navbarHideBackButtonSwitch" destination="y0n-Hj-xSb" id="1jq-k1-lmb"/>
+                        <outlet property="navbarLeftButtonItemCountSegmentedControl" destination="BSc-dV-f0H" id="l46-eB-pfQ"/>
+                        <outlet property="navbarLeftButtonItemStyleSegmentedControl" destination="cJW-rb-d7g" id="HR3-Oq-UYb"/>
+                        <outlet property="navbarRightButtonItemCountSegmentedControl" destination="VUD-tk-M6Q" id="68Y-xd-6cQ"/>
+                        <outlet property="navbarRightButtonItemStyleSegmentedControl" destination="DEO-Fa-dwK" id="pvv-i1-NqH"/>
+                        <outlet property="navbarStyleSegmentedControl" destination="UNV-y0-K5N" id="eql-wb-tp3"/>
+                        <outlet property="navbarTitleSegmentedControl" destination="1Wi-OK-4sf" id="6l3-FI-9Ht"/>
+                        <outlet property="promptSwitch" destination="9z8-L7-1k9" id="LEn-H6-qtP"/>
+                        <outlet property="toolbarBackgroundSegmentedControl" destination="sdb-pN-6a2" id="HpN-8f-5YC"/>
+                        <outlet property="toolbarItemLayoutSegmentedControl" destination="YXU-8l-5h4" id="CBu-uY-sAf"/>
+                        <outlet property="toolbarItemStyleSegmentedControl" destination="frs-sf-4Ha" id="XBy-wF-KPo"/>
+                        <outlet property="toolbarStyleSegmentedControl" destination="peI-bW-iOb" id="9na-jB-8hn"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i1W-xs-f0c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1840.8" y="-108.84557721139431"/>
+        </scene>
+    </scenes>
+</document>

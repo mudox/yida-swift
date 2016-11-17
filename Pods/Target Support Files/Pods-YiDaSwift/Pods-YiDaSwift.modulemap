@@ -1,0 +1,6 @@
+framework module Pods_YiDaSwift {
+  umbrella header "Pods-YiDaSwift-umbrella.h"
+
+  export *
+  module * { export * }
+}

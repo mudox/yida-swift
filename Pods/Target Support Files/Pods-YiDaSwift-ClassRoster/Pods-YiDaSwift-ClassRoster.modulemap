@@ -1,0 +1,6 @@
+framework module Pods_YiDaSwift_ClassRoster {
+  umbrella header "Pods-YiDaSwift-ClassRoster-umbrella.h"
+
+  export *
+  module * { export * }
+}
