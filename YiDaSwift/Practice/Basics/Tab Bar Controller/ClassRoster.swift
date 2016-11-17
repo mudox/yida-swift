@@ -146,13 +146,13 @@ extension ClassRoster {
   static var fakeRoster: ClassRoster = {
 
     let students: [Student] = (0..<400).map { _ in
-      let surname = DataSource.random.aSurname
       let age = 16 + UInt(arc4random_uniform(5))
 
       // from A - Z
       let ordinal = UnicodeScalar(0x41 + arc4random_uniform(26))!
       let classID = String(Character(ordinal))
 
+      let surname = DataSource.random.aSurname
       let name: String
       let gender: Student.Gender
       if arc4random_uniform(2) == 1 {
@@ -160,7 +160,7 @@ extension ClassRoster {
         name = DataSource.random.aMaleName
       } else {
         gender = .female
-        name = DataSource.random.aSurname
+        name = DataSource.random.aFemaleName
       }
 
       fakeInstanceCount += 1

@@ -12,17 +12,20 @@ struct RandomDataSource {
   // MARK: names & age
   private static var maleNames: String = {
     let url = Bundle.main.url(forResource: "CNMaleNames", withExtension: "")!
-    return try! String.init(contentsOf: url)
+    let text = try! String.init(contentsOf: url)
+    return String(text.characters.dropLast())
   }()
 
   private static var femaleNames: String = {
     let url = Bundle.main.url(forResource: "CNFemaleNames", withExtension: "")!
-    return try! String.init(contentsOf: url)
+    let text = try! String.init(contentsOf: url)
+    return String(text.characters.dropLast())
   }()
 
   private static var surnames: String = {
     let url = Bundle.main.url(forResource: "CNSurnames", withExtension: "")!
-    return try! String.init(contentsOf: url)
+    let text = try! String.init(contentsOf: url)
+    return String(text.characters.dropLast())
   }()
 
   /// a chinese full name regardless of gender
@@ -32,10 +35,8 @@ struct RandomDataSource {
 
   static var aSurname: String {
     let count = surnames.characters.count
-    let start = surnames.startIndex
-    let lower = surnames.index(start, offsetBy: String.IndexDistance(arc4random_uniform(UInt32(count))))
-    let upper = surnames.index(after: lower)
-    return surnames.substring(with: lower..<upper)
+    let index = surnames.index(surnames.startIndex, offsetBy: String.IndexDistance(arc4random_uniform(UInt32(count))))
+    return String(surnames[index])
   }
 
   /// a chinese name (without surname) regardless of gender
@@ -46,14 +47,12 @@ struct RandomDataSource {
   static var aMaleName: String {
     let names = maleNames
     let count = names.characters.count
-    let index = names.startIndex
 
     var theName = ""
-    for _ in 0...arc4random_uniform(2)  {
-      let lower = names.index(index, offsetBy: String.IndexDistance(arc4random_uniform(UInt32(count))))
-      let upper = names.index(after: lower)
-      let name = names.substring(with: lower..<upper)
-      theName += name
+    for _ in 0...arc4random_uniform(2) {
+      let index = names.index(names.startIndex, offsetBy: String.IndexDistance(arc4random_uniform(UInt32(count))))
+      let name = names[index]
+      theName.append(name)
     }
 
     return theName
@@ -62,14 +61,12 @@ struct RandomDataSource {
   static var aFemaleName: String {
     let names = femaleNames
     let count = names.characters.count
-    let index = names.startIndex
 
     var theName = ""
     for _ in 0...arc4random_uniform(2) {
-      let lower = names.index(index, offsetBy: String.IndexDistance(arc4random_uniform(UInt32(count))))
-      let upper = names.index(after: lower)
-      let name = names.substring(with: lower..<upper)
-      theName += name
+      let index = names.index(names.startIndex, offsetBy: String.IndexDistance(arc4random_uniform(UInt32(count))))
+      let name = names[index]
+      theName.append(name)
     }
 
     return theName

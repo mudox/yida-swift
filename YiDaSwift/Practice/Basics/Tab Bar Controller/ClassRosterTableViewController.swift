@@ -23,7 +23,7 @@ class ClassRosterTableViewController: UITableViewController {
   @IBOutlet var editTypeControl: UISegmentedControl!
   @IBOutlet weak var groupByClassButton: UIButton!
 
-  @IBOutlet weak var editButton: UIBarButtonItem!
+  @IBOutlet weak var editButton: UIButton!
 
   var roster: ClassRoster!
 
@@ -44,13 +44,13 @@ extension ClassRosterTableViewController {
   func setupLogic() {
     editButton.rx.tap.subscribe(onNext: {
       [unowned self] in
-      if self.editButton.title == "编辑" {
+      if self.editButton.currentTitle == "编辑" {
         self.setEditing(true, animated: true)
-        self.editButton.title = "完成"
+        self.editButton.setTitle("完成", for: .normal)
         self.editTypeControl.isEnabled = true
       } else {
         self.setEditing(false, animated: true)
-        self.editButton.title = "编辑"
+        self.editButton.setTitle("编辑", for: .normal)
         self.editTypeControl.isEnabled = false
       }
     }).addDisposableTo(disposeBag)

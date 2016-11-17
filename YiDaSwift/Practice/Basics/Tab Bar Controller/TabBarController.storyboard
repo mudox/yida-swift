@@ -127,7 +127,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F1l-Dw-acJ" id="q65-Jl-ltg">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -287,7 +287,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="126"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IbF-q9-PYQ" id="mji-B5-Q62">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="125"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="125.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="News-8.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="rJB-jA-4Zg">
@@ -309,7 +309,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="604-za-pBE">
-                                            <rect key="frame" x="104" y="48" width="208" height="51"/>
+                                            <rect key="frame" x="104" y="48" width="208" height="50.5"/>
                                             <attributedString key="attributedText">
                                                 <fragment content="摘要内容填充中间区域，两段对齐。一出部分从尾部截断，补上省略号。摘要内容填充中间区域，两段对齐。一出部分从尾部截断，补上省略号。摘要内容填充中间区域，两段对齐。一出部分从尾部截断，补上省略号。">
                                                     <attributes>
@@ -558,34 +558,34 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Rr8-C0-MUf">
-                                            <rect key="frame" x="8" y="8" width="304" height="16"/>
+                                            <rect key="frame" x="8" y="8" width="304" height="24"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名字" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5zk-vr-XWq">
-                                                    <rect key="frame" x="0.0" y="0.0" width="55" height="16"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="55" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="男" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VKY-e9-jGP">
-                                                    <rect key="frame" x="59" y="0.0" width="27" height="16"/>
+                                                    <rect key="frame" x="59" y="0.0" width="27" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18岁" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ao4-Sz-0yV">
-                                                    <rect key="frame" x="90" y="0.0" width="41" height="16"/>
+                                                    <rect key="frame" x="90" y="0.0" width="41" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YD-iOS-00032" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="v7i-hX-4Ty">
-                                                    <rect key="frame" x="135" y="0.0" width="110" height="16"/>
+                                                    <rect key="frame" x="135" y="0.0" width="110" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="255班" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3sz-Mw-wJB">
-                                                    <rect key="frame" x="249" y="0.0" width="55" height="16"/>
+                                                    <rect key="frame" x="249" y="0.0" width="55" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -600,7 +600,7 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Rr8-C0-MUf" firstAttribute="bottom" secondItem="vtD-3M-14G" secondAttribute="bottomMargin" id="bBj-NW-m6j"/>
+                                        <constraint firstItem="Rr8-C0-MUf" firstAttribute="bottom" secondItem="vtD-3M-14G" secondAttribute="bottom" id="bBj-NW-m6j"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Rr8-C0-MUf" secondAttribute="trailing" id="qe4-lY-1A0"/>
                                         <constraint firstItem="Rr8-C0-MUf" firstAttribute="leading" secondItem="vtD-3M-14G" secondAttribute="leadingMargin" id="vxz-lZ-dqD"/>
                                         <constraint firstItem="Rr8-C0-MUf" firstAttribute="top" secondItem="vtD-3M-14G" secondAttribute="topMargin" id="wUg-dJ-T1m"/>
@@ -625,12 +625,28 @@
                         <barButtonItem title="Item" id="2bk-fD-y0A"/>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="h9H-75-6V9"/>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" title="班级花名册" id="1kj-Ud-eF2">
-                        <barButtonItem key="rightBarButtonItem" title="编辑" id="OTy-Na-9iH"/>
+                    <navigationItem key="navigationItem" id="1kj-Ud-eF2">
+                        <nil key="title"/>
+                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="学员花名册" textAlignment="center" minimumFontSize="17" id="AD3-ID-RCx">
+                            <rect key="frame" x="49" y="7" width="214" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.91193999999999997" green="0.88805400000000001" blue="0.87251199999999995" alpha="0.50271167813455653" colorSpace="calibratedRGB"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="b7O-Xs-f4c">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="H8y-ph-B7w">
+                                <rect key="frame" x="269" y="7" width="35" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="分班"/>
+                            </button>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="editButton" destination="OTy-Na-9iH" id="l1D-Ud-4Ae"/>
+                        <outlet property="editButton" destination="YWe-OR-xCq" id="fBS-gh-aML"/>
                         <outlet property="editTypeControl" destination="wdx-3d-A7u" id="oGv-Ok-wtB"/>
                         <outlet property="groupByClassButton" destination="H8y-ph-B7w" id="GAv-2e-whL"/>
                         <outlet property="headerClassIDLabel" destination="CvG-OJ-Baf" id="uah-Jw-gSh"/>
@@ -641,45 +657,50 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ux-Jv-7j4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <view opaque="NO" contentMode="scaleToFill" id="s2O-Qs-yBj">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="29"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="aZT-iJ-0kj">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="29"/>
-                            <subviews>
-                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="c5a-BR-e6x">
-                                    <rect key="frame" x="0.0" y="0.0" width="229" height="30"/>
-                                    <segments>
-                                        <segment title="姓名" width="37"/>
-                                        <segment title="年龄" width="37"/>
-                                        <segment title="学员编号" width="64"/>
-                                    </segments>
-                                </segmentedControl>
-                                <segmentedControl opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wdx-3d-A7u">
-                                    <rect key="frame" x="233" y="0.0" width="123" height="30"/>
-                                    <segments>
-                                        <segment title="删除" width="37"/>
-                                        <segment title="移动" width="37"/>
-                                    </segments>
-                                </segmentedControl>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H8y-ph-B7w">
-                                    <rect key="frame" x="360" y="0.0" width="54" height="29"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <state key="normal" title="分班"/>
-                                </button>
-                            </subviews>
-                        </stackView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="排序" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z2C-xg-7fp">
+                            <rect key="frame" x="0.0" y="6" width="29" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="c5a-BR-e6x">
+                            <rect key="frame" x="33" y="0.5" width="140" height="29"/>
+                            <segments>
+                                <segment title="姓名" width="37"/>
+                                <segment title="年龄" width="37"/>
+                                <segment title="学员编号" width="64"/>
+                            </segments>
+                        </segmentedControl>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="wdx-3d-A7u">
+                            <rect key="frame" x="211" y="0.5" width="75" height="29"/>
+                            <segments>
+                                <segment title="删除" width="37"/>
+                                <segment title="移动" width="37"/>
+                            </segments>
+                        </segmentedControl>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YWe-OR-xCq">
+                            <rect key="frame" x="290" y="0.0" width="30" height="29"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="编辑"/>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="aZT-iJ-0kj" secondAttribute="trailing" id="5on-Xq-Say"/>
-                        <constraint firstAttribute="bottom" secondItem="aZT-iJ-0kj" secondAttribute="bottom" id="AOE-fa-VhX"/>
-                        <constraint firstItem="aZT-iJ-0kj" firstAttribute="leading" secondItem="s2O-Qs-yBj" secondAttribute="leading" id="GQp-E6-t9b"/>
-                        <constraint firstItem="aZT-iJ-0kj" firstAttribute="top" secondItem="s2O-Qs-yBj" secondAttribute="top" id="jNW-oQ-GQe"/>
+                        <constraint firstItem="z2C-xg-7fp" firstAttribute="leading" secondItem="s2O-Qs-yBj" secondAttribute="leading" id="4cO-mL-Wk1"/>
+                        <constraint firstItem="YWe-OR-xCq" firstAttribute="leading" secondItem="wdx-3d-A7u" secondAttribute="trailing" constant="4" id="GuP-pK-Anf"/>
+                        <constraint firstItem="z2C-xg-7fp" firstAttribute="centerY" secondItem="s2O-Qs-yBj" secondAttribute="centerY" id="MH7-yF-I7m"/>
+                        <constraint firstItem="YWe-OR-xCq" firstAttribute="centerY" secondItem="s2O-Qs-yBj" secondAttribute="centerY" id="OQK-0N-cuK"/>
+                        <constraint firstItem="wdx-3d-A7u" firstAttribute="centerY" secondItem="s2O-Qs-yBj" secondAttribute="centerY" id="W39-Qj-wMT"/>
+                        <constraint firstItem="c5a-BR-e6x" firstAttribute="leading" secondItem="z2C-xg-7fp" secondAttribute="trailing" constant="4" id="bDV-7S-cL7"/>
+                        <constraint firstAttribute="trailing" secondItem="YWe-OR-xCq" secondAttribute="trailing" id="vh3-W0-xXz"/>
+                        <constraint firstItem="c5a-BR-e6x" firstAttribute="centerY" secondItem="s2O-Qs-yBj" secondAttribute="centerY" id="x5i-mM-W0b"/>
                     </constraints>
                 </view>
             </objects>
-            <point key="canvasLocation" x="-945" y="4265"/>
+            <point key="canvasLocation" x="-945" y="4263.3802816901407"/>
         </scene>
         <!--Root Navigation Controller-->
         <scene sceneID="I2i-MK-7UQ">
@@ -714,6 +735,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="KK0-eN-zoF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.34117648010000001" green="0.62352943419999995" blue="0.16862745579999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
