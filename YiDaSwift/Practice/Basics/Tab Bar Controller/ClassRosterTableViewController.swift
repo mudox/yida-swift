@@ -68,7 +68,17 @@ extension ClassRosterTableViewController {
     }).addDisposableTo(disposeBag)
 
     sortByControl.rx.value.subscribe(onNext: {
-      [unowned self](_: Int) in
+      [unowned self](index: Int) in
+      switch index {
+      case 0:
+        self.roster.sortingCriteria = .name
+      case 1:
+        self.roster.sortingCriteria = .age
+      case 2:
+        self.roster.sortingCriteria = .id
+      default:
+        fatalError()
+      }
       self.tableView.reloadData()
     }).addDisposableTo(disposeBag)
   }
@@ -118,8 +128,8 @@ extension ClassRosterTableViewController {
 
     navigationController?.setToolbarHidden(true, animated: false)
   }
-
 }
+
 // MARK: - as UITableViewDataSource
 extension ClassRosterTableViewController {
 
@@ -132,7 +142,7 @@ extension ClassRosterTableViewController {
       return students(forClassIDAtSection: indexPath.section)[indexPath.row]
     } else {
       assert(indexPath.section == 0)
-      return roster.students[indexPath.row]
+      return roster.ungrouped[indexPath.row]
     }
   }
 
@@ -142,13 +152,12 @@ extension ClassRosterTableViewController {
     }
 
     let classID = roster.allClassIDs[section]
-    return roster.groupedByClass[classID]!
+    return roster.grouped[classID]!
   }
 
-  // MARK: - Table view data source
   override func numberOfSections(in tableView: UITableView) -> Int {
     if isGroupedByClass {
-      return roster.groupedByClass.keys.count
+      return roster.allClassIDs.count
     } else {
       return 1
     }
@@ -158,7 +167,7 @@ extension ClassRosterTableViewController {
     if isGroupedByClass {
       return students(forClassIDAtSection: section).count
     } else {
-      return roster.students.count
+      return roster.ungrouped.count
     }
   }
 

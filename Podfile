@@ -18,6 +18,11 @@ target 'YiDaSwift' do
   pod 'RxSwift'
   pod 'RxCocoa'
 
+  pod 'SwiftDate', '~> 4.0'
+  pod 'RandomKit'
+
+  pod 'SnapKit', '~> 3.0'
+
   pod 'Alamofire', '~> 4.0'
 
   pod 'pop', '~> 1.0'

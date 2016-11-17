@@ -20,7 +20,7 @@ class ClassRosterTableHeaderView: UITableViewHeaderFooterView {
    
    table view delegate methods
    */
-  static let viewHeight: CGFloat = 40
+  static let viewHeight: CGFloat = 38
 
   var classIDLabel = UILabel()
   var classSummaryLabel = UILabel()
@@ -39,7 +39,7 @@ class ClassRosterTableHeaderView: UITableViewHeaderFooterView {
 
     // class ID label
     classIDLabel.textColor = .white
-    let cornerRadius: CGFloat = 3
+    let cornerRadius: CGFloat = 4
     classIDLabel.layer.cornerRadius = cornerRadius
     classIDLabel.layer.masksToBounds = true
     classIDLabel.font = UIFont.systemFont(ofSize: 15, weight: UIFontWeightBold)
@@ -48,9 +48,10 @@ class ClassRosterTableHeaderView: UITableViewHeaderFooterView {
     contentView.addSubview(classIDLabel)
     classIDLabel.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
-      classIDLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-      classIDLabel.widthAnchor.constraint(equalToConstant: 72),
+      classIDLabel.widthAnchor.constraint(equalToConstant: 88),
       classIDLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: -cornerRadius),
+      classIDLabel.topAnchor.constraint(equalTo: topAnchor, constant: 14),
+      classIDLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4),
     ])
 
     // class summary text label
@@ -59,7 +60,7 @@ class ClassRosterTableHeaderView: UITableViewHeaderFooterView {
     contentView.addSubview(classSummaryLabel)
     classSummaryLabel.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
-      classSummaryLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+      classSummaryLabel.lastBaselineAnchor.constraint(equalTo: classIDLabel.lastBaselineAnchor),
       classSummaryLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
     ])
   }
@@ -71,7 +72,7 @@ class ClassRosterTableHeaderView: UITableViewHeaderFooterView {
 
   func set(withClassInfo studentList: [Student]) {
     let classID = studentList[0].classID
-    classIDLabel.text = "iOS \(classID) 班"
+    classIDLabel.text = "  iOS \(classID) 班"
 
     var maleCount = 0
     var femaleCount = 0
@@ -83,7 +84,7 @@ class ClassRosterTableHeaderView: UITableViewHeaderFooterView {
       }
     }
 
-    let summaryText = "男:\(maleCount) 女:\(femaleCount) 总计\(studentList.count)名学员"
+    let summaryText = "\(maleCount)男 \(femaleCount)女 总计\(studentList.count)名学员"
     classSummaryLabel.text = summaryText
   }
 

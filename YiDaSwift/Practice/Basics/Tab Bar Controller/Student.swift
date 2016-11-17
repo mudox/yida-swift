@@ -23,12 +23,15 @@ struct Student {
   var age: UInt
   var gender: Gender
   var classID: String
-  var id: String
 
+  var id: UInt
+  var idString: String {
+    return String(format: "YD-iOS-%05u", id)
+  }
 }
 
 extension Student: CustomStringConvertible {
   var description: String {
-    return "\(fullName) \((gender == .male) ? "男" : "女") \(age)岁, \(classID)学员 学号 \(id)"
+    return "\(fullName) \((gender == .male) ? "男" : "女") \(age)岁, \(classID)学员 学号 \(idString)"
   }
 }

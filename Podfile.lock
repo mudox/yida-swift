@@ -11,9 +11,12 @@ PODS:
   - Gloss (1.1.0)
   - pop (1.0.9)
   - PySwiftyRegex (1.0.0)
+  - RandomKit (2.2.1)
   - RxCocoa (3.0.1):
     - RxSwift (~> 3.0)
   - RxSwift (3.0.1)
+  - SnapKit (3.0.2)
+  - SwiftDate (4.0.7)
   - SwiftMessages (3.0.3)
   - SwiftValidators (5.1.1)
   - SwiftyJSON (3.1.1)
@@ -25,8 +28,11 @@ DEPENDENCIES:
   - Gloss (~> 1.0)
   - pop (~> 1.0)
   - PySwiftyRegex
+  - RandomKit
   - RxCocoa
   - RxSwift
+  - SnapKit (~> 3.0)
+  - SwiftDate (~> 4.0)
   - SwiftMessages
   - SwiftValidators
   - SwiftyJSON
@@ -38,12 +44,15 @@ SPEC CHECKSUMS:
   Gloss: a8340c124ff69c5d1c12e06c252373f4a16d2958
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
   PySwiftyRegex: 9f53cc95dcc4b5c91f050487d6dba3e4aac298ed
+  RandomKit: 13274fafac7e3557b95eb974f28c68ac8309d918
   RxCocoa: 15a52fc590dcc700cb4a690a633b5c5184ce3a78
   RxSwift: af5680055c4ad04480189c52d28385b1029493a6
+  SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
+  SwiftDate: 0efb04a6751b1ab804049b2b09a69848cd304c12
   SwiftMessages: 3c6fd0375009d69ff35a7656bae0e31b4d8a930d
   SwiftValidators: 3be5c8f80287fe4960d1b053519b22f304804a00
   SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
 
-PODFILE CHECKSUM: 6bf9cb0ba24c78e3f73f57ba19e297cc55e61a2b
+PODFILE CHECKSUM: 1dd5f8f467b44e2d4e77d3ed3176882ce14997af
 
 COCOAPODS: 1.2.0.beta.1

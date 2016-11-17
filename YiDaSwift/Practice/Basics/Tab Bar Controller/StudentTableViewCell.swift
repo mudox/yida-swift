@@ -24,7 +24,7 @@ class StudentTableViewCell: UITableViewCell {
     ageLabel.text = "\(student.age) 岁"
     genderLabel.text = (student.gender == .male) ? "男" : "女"
     classIDLabel.text = "\(student.classID) 班"
-    studentIDLabel.text = student.id
+    studentIDLabel.text = student.idString
 
     let fontSize: CGFloat = 13
     let monospacedFont = UIFont.monospacedDigitSystemFont(ofSize: fontSize, weight: UIFontWeightThin)
