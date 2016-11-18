@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class ClassRosterTableHeaderView: UITableViewHeaderFooterView {
 
@@ -20,7 +21,7 @@ class ClassRosterTableHeaderView: UITableViewHeaderFooterView {
    
    table view delegate methods
    */
-  static let viewHeight: CGFloat = 38
+  static let viewHeight: CGFloat = 48
 
   var classIDLabel = UILabel()
   var classSummaryLabel = UILabel()
@@ -46,23 +47,21 @@ class ClassRosterTableHeaderView: UITableViewHeaderFooterView {
     classIDLabel.textAlignment = .center
 
     contentView.addSubview(classIDLabel)
-    classIDLabel.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint.activate([
-      classIDLabel.widthAnchor.constraint(equalToConstant: 88),
-      classIDLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: -cornerRadius),
-      classIDLabel.topAnchor.constraint(equalTo: topAnchor, constant: 14),
-      classIDLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4),
-    ])
+    classIDLabel.snp.makeConstraints { make in
+      make.width.equalTo(88)
+      make.height.equalTo(23)
+      make.leading.equalTo(self).offset(-(cornerRadius + 5))
+      make.bottom.equalTo(self).offset(-4)
+    }
 
     // class summary text label
     classSummaryLabel.font = UIFont.systemFont(ofSize: 12, weight: UIFontWeightThin)
 
     contentView.addSubview(classSummaryLabel)
-    classSummaryLabel.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint.activate([
-      classSummaryLabel.lastBaselineAnchor.constraint(equalTo: classIDLabel.lastBaselineAnchor),
-      classSummaryLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-    ])
+    classSummaryLabel.snp.makeConstraints { (make) in
+      make.lastBaseline.equalTo(classIDLabel)
+      make.trailing.equalTo(self).offset(-20)
+    }
   }
 
   override func tintColorDidChange() {

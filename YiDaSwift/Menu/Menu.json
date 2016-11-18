@@ -59,6 +59,21 @@
     },
 
     {
+      "headerText": "表格视图 & 表格控制器（UITableView & UITableViewController)",
+      "items": [{
+        "title": "标题未定",
+        "subtitle": "副标题未定",
+        "storyboardName": "",
+        "viewControllerReferenceID": ""
+      }, {
+        "title": "学员花名册",
+        "subtitle": "使用 UITableViewController 实现，可排序，索引，移动，删除，搜索",
+        "storyboardName": "TableViewController",
+        "viewControllerReferenceID": "Class Roster Table View Controller"
+      }]
+    },
+
+    {
       "headerText": "导航控制器（UINavigationController）",
       "items": [{
         "title": "子视图管理",

@@ -20,7 +20,6 @@ class ClassRosterTableViewController: UITableViewController {
   @IBOutlet var toolbarItemsView: UIView!
   @IBOutlet weak var toolbarContainerItem: UIBarButtonItem!
   @IBOutlet var sortByControl: UISegmentedControl!
-  @IBOutlet var editTypeControl: UISegmentedControl!
   @IBOutlet weak var groupByClassButton: UIButton!
 
   @IBOutlet weak var editButton: UIButton!
@@ -44,42 +43,39 @@ extension ClassRosterTableViewController {
   func setupLogic() {
     editButton.rx.tap.subscribe(onNext: {
       [unowned self] in
-      if self.editButton.currentTitle == "编辑" {
-        self.setEditing(true, animated: true)
-        self.editButton.setTitle("完成", for: .normal)
-        self.editTypeControl.isEnabled = true
-      } else {
-        self.setEditing(false, animated: true)
-        self.editButton.setTitle("编辑", for: .normal)
-        self.editTypeControl.isEnabled = false
-      }
+
+      // enter editing mode is the edit button is selected
+      self.editButton.isSelected = !self.editButton.isSelected
+      self.tableView.reloadData()
     }).addDisposableTo(disposeBag)
 
     groupByClassButton.rx.tap.subscribe(onNext: {
       [unowned self] in
-      if self.groupByClassButton.title(for: .normal) == "分班" {
-        self.groupByClassButton.setTitle("不分班", for: .normal)
-        self.headerClassIDLabel.isHidden = true
-      } else {
-        self.groupByClassButton.setTitle("分班", for: .normal)
-        self.headerClassIDLabel.isHidden = false
-      }
+
+      // group student by class if the button is selected
+      self.groupByClassButton.isSelected = !self.groupByClassButton.isSelected
+      self.headerClassIDLabel.isHidden = self.groupByClassButton.isSelected
+
       self.tableView.reloadData()
+
     }).addDisposableTo(disposeBag)
 
     sortByControl.rx.value.subscribe(onNext: {
       [unowned self](index: Int) in
       switch index {
       case 0:
-        self.roster.sortingCriteria = .name
+        self.roster.sortByName()
       case 1:
-        self.roster.sortingCriteria = .age
+        self.roster.sortByAge()
       case 2:
-        self.roster.sortingCriteria = .id
+        self.roster.sortByID()
       default:
-        fatalError()
+        // keep it as is
+        break
       }
+
       self.tableView.reloadData()
+
     }).addDisposableTo(disposeBag)
   }
 
@@ -91,11 +87,28 @@ extension ClassRosterTableViewController {
 
     installDismissButtonOnNavigationBar()
 
+    // data model
     roster = ClassRoster.fakeRoster
 
+    // table header view
+    tableView.tableHeaderView!.backgroundColor = theWindow.tintColor
+    let stackView = tableView.tableHeaderView!.subviews[0] as! UIStackView
+    for view in stackView.arrangedSubviews {
+      let label = view as! UILabel
+      label.textColor = .white
+    }
+
+    // section index title
+    tableView.sectionIndexBackgroundColor = .clear
+    tableView.sectionIndexMinimumDisplayRowCount = 10
+
+    // section header view
     tableView.register(ClassRosterTableHeaderView.self, forHeaderFooterViewReuseIdentifier: ClassRosterTableHeaderView.identifier)
 
+    // buttons logic
     setupLogic()
+
+    tableView.setEditing(true, animated: false)
   }
 
   /**
@@ -130,29 +143,31 @@ extension ClassRosterTableViewController {
   }
 }
 
-// MARK: - as UITableViewDataSource
+// MARK: - as UITableViewDataSource & UITableViewDelegate
 extension ClassRosterTableViewController {
 
+  // MARK: Load data
+
   var isGroupedByClass: Bool {
-    return groupByClassButton.title(for: .normal) == "不分班"
+    return groupByClassButton.isSelected
   }
 
-  func student(forIndexPath indexPath: IndexPath) -> Student {
+  func student(forRowAt indexPath: IndexPath) -> Student {
+    assert(indexPath.row != 0, "the 1st row is left for 'Add' cell")
+
     if isGroupedByClass {
-      return students(forClassIDAtSection: indexPath.section)[indexPath.row]
+      return students(inSection: indexPath.section)[indexPath.row - 1]
     } else {
       assert(indexPath.section == 0)
-      return roster.ungrouped[indexPath.row]
+      return roster.students[indexPath.row - 1]
     }
   }
 
-  func students(forClassIDAtSection section: Int) -> [Student] {
-    guard isGroupedByClass else {
-      fatalError()
-    }
+  func students(inSection section: Int) -> [Student] {
+    assert(isGroupedByClass)
 
     let classID = roster.allClassIDs[section]
-    return roster.grouped[classID]!
+    return roster.studentsGroupedByClassID[classID]!
   }
 
   override func numberOfSections(in tableView: UITableView) -> Int {
@@ -164,21 +179,31 @@ extension ClassRosterTableViewController {
   }
 
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    // the 1st row (in each section) is left for 'Add' cell
     if isGroupedByClass {
-      return students(forClassIDAtSection: section).count
+      return students(inSection: section).count + 1
     } else {
-      return roster.ungrouped.count
+      return roster.students.count + 1
     }
   }
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: StudentTableViewCell.identifier, for: indexPath) as! StudentTableViewCell
+    let addStudentCellID = "Add Student Cell"
 
-    cell.set(withInfo: student(forIndexPath: indexPath))
-    cell.classIDLabel.isHidden = isGroupedByClass
-
-    return cell
+    // the 1st row is left for Add cell wether the items is grouped or not
+    if indexPath.row == 0 {
+      let cell = tableView.dequeueReusableCell(withIdentifier: addStudentCellID, for: indexPath)
+      cell.textLabel!.textColor = theWindow.tintColor
+      return cell
+    } else {
+      let cell = tableView.dequeueReusableCell(withIdentifier: StudentTableViewCell.identifier, for: indexPath) as! StudentTableViewCell
+      cell.set(withInfo: student(forRowAt: indexPath))
+      cell.classIDLabel.isHidden = isGroupedByClass
+      return cell
+    }
   }
+
+  // MARK: Section index
 
   override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
     if isGroupedByClass {
@@ -191,17 +216,14 @@ extension ClassRosterTableViewController {
   override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
     return index
   }
-}
-
-// MARK: - as UITableViewDelegate
-extension ClassRosterTableViewController {
 
   // MARK: Header view
+
   override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
     if isGroupedByClass {
       let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: ClassRosterTableHeaderView.identifier) as! ClassRosterTableHeaderView
-      headerView.set(withClassInfo: students(forClassIDAtSection: section))
+      headerView.set(withClassInfo: students(inSection: section))
       return headerView
     } else {
       return nil
@@ -224,49 +246,93 @@ extension ClassRosterTableViewController {
     }
   }
 
-  /*
-   // Override to support conditional editing of the table view.
-   override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-   // Return false if you do not want the specified item to be editable.
-   return true
-   }
-   */
+  // MARK: Move item
+  override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+    if indexPath.row == 0 {
+      return false
+    } else {
+      return editButton.isSelected
+    }
+  }
 
-  /*
-   // Override to support editing the table view.
-   override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-   if editingStyle == .delete {
-   // Delete the row from the data source
-   tableView.deleteRows(at: [indexPath], with: .fade)
-   } else if editingStyle == .insert {
-   // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-   }
-   }
-   */
+  override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+    assert(sourceIndexPath.section == destinationIndexPath.section)
+    if isGroupedByClass {
+      let classID = roster.allClassIDs[sourceIndexPath.section]
+      roster.moveStudentInGroupedView(ofClass: classID, at: sourceIndexPath.row, to: destinationIndexPath.row)
+    } else {
+      roster.moveStudent(at: sourceIndexPath.row, to: destinationIndexPath.row)
+    }
+  }
 
-  /*
-   // Override to support rearranging the table view.
-   override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+  override func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
+    if isGroupedByClass {
+      if proposedDestinationIndexPath.section > sourceIndexPath.section {
+        let sourceSection = sourceIndexPath.section
+        let upperboundRowInSourceSection = students(inSection: sourceSection).count
+        return IndexPath(row: upperboundRowInSourceSection, section: sourceIndexPath.section)
+      } else if proposedDestinationIndexPath.section < sourceIndexPath.section {
+        return IndexPath(row: 0, section: sourceIndexPath.section)
+      } else {
+        return proposedDestinationIndexPath
+      }
+    } else {
+      return proposedDestinationIndexPath
+    }
+  }
 
-   }
-   */
+  // MARK: Selction
 
-  /*
-   // Override to support conditional rearranging of the table view.
-   override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-   // Return false if you do not want the item to be re-orderable.
-   return true
-   }
-   */
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
+  }
 
-  /*
-   // MARK: - Navigation
+  // MARK: Deleting/Inserting item
+  override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+    if indexPath.row == 0 {
+      // the first row (wether in grouped section or not) is always left for Add cell
+      return .insert
+    } else {
+      // for all other student cells
+      if editButton.isSelected {
+        return .delete
+      } else {
+        return .none
+      }
+    }
+  }
 
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destinationViewController.
-   // Pass the selected object to the new view controller.
-   }
-   */
+  override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+    if indexPath.row == 0 {
+      return true
+    } else {
+      return editButton.isSelected
+    }
+  }
 
+  override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    switch editingStyle {
+    case .insert:
+      assert(indexPath.row == 0)
+
+      if isGroupedByClass {
+        let classID = roster.allClassIDs[indexPath.section]
+        roster.addAFakeStudent(withClassID: classID)
+      } else {
+        roster.addAFakeStudent()
+      }
+      var insertIndexPath = indexPath
+      insertIndexPath.row = 1
+      tableView.insertRows(at: [insertIndexPath], with: .automatic)
+
+    case .delete:
+      assert(indexPath.row != 0)
+
+      roster.removeStudent(student(forRowAt: indexPath))
+      tableView.deleteRows(at: [indexPath], with: .automatic)
+
+    default:
+      break
+    }
+  }
 }

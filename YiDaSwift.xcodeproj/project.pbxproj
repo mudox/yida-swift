@@ -105,6 +105,7 @@
 		F4519DE31DDD5978000D175E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4519D9B1DDD5978000D175E /* AppDelegate.swift */; };
 		F4519DE41DDD5978000D175E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4519D9C1DDD5978000D175E /* LaunchScreen.storyboard */; };
 		F4519DE81DDD5EDC000D175E /* Mudox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4519DE71DDD5EDC000D175E /* Mudox.swift */; };
+		F4680D8D1DDF72CD005EF43B /* TableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4680D8C1DDF72CD005EF43B /* TableViewController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -224,9 +225,9 @@
 		F4519D781DDD5978000D175E /* ScrollViewTask2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewTask2ViewController.swift; sourceTree = "<group>"; };
 		F4519D791DDD5978000D175E /* ScrollViewTask3ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewTask3ViewController.swift; sourceTree = "<group>"; };
 		F4519D7A1DDD5978000D175E /* ShowcaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowcaseView.swift; sourceTree = "<group>"; };
-		F4519D7C1DDD5978000D175E /* ClassRoster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassRoster.swift; sourceTree = "<group>"; };
-		F4519D7D1DDD5978000D175E /* ClassRosterTableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassRosterTableHeaderView.swift; sourceTree = "<group>"; };
-		F4519D7E1DDD5978000D175E /* ClassRosterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassRosterTableViewController.swift; sourceTree = "<group>"; };
+		F4519D7C1DDD5978000D175E /* ClassRoster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClassRoster.swift; path = "../Tab Bar Controller/ClassRoster.swift"; sourceTree = "<group>"; };
+		F4519D7D1DDD5978000D175E /* ClassRosterTableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClassRosterTableHeaderView.swift; path = "../Tab Bar Controller/ClassRosterTableHeaderView.swift"; sourceTree = "<group>"; };
+		F4519D7E1DDD5978000D175E /* ClassRosterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClassRosterTableViewController.swift; path = "../Tab Bar Controller/ClassRosterTableViewController.swift"; sourceTree = "<group>"; };
 		F4519D7F1DDD5978000D175E /* CustomTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		F4519D801DDD5978000D175E /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		F4519D811DDD5978000D175E /* ImageBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageBrowserViewController.swift; sourceTree = "<group>"; };
@@ -236,8 +237,8 @@
 		F4519D851DDD5978000D175E /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 		F4519D861DDD5978000D175E /* PhotosCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewController.swift; sourceTree = "<group>"; };
 		F4519D871DDD5978000D175E /* PresentedTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentedTabBarController.swift; sourceTree = "<group>"; };
-		F4519D881DDD5978000D175E /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
-		F4519D891DDD5978000D175E /* StudentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentTableViewCell.swift; sourceTree = "<group>"; };
+		F4519D881DDD5978000D175E /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Student.swift; path = "../Tab Bar Controller/Student.swift"; sourceTree = "<group>"; };
+		F4519D891DDD5978000D175E /* StudentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StudentTableViewCell.swift; path = "../Tab Bar Controller/StudentTableViewCell.swift"; sourceTree = "<group>"; };
 		F4519D8A1DDD5978000D175E /* TabBarContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarContentViewController.swift; sourceTree = "<group>"; };
 		F4519D8B1DDD5978000D175E /* TabBarController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TabBarController.storyboard; sourceTree = "<group>"; };
 		F4519D8C1DDD5978000D175E /* WebBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebBrowserViewController.swift; sourceTree = "<group>"; };
@@ -256,6 +257,7 @@
 		F4519D9C1DDD5978000D175E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = YiDaSwift/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F4519DE71DDD5EDC000D175E /* Mudox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mudox.swift; sourceTree = "<group>"; };
 		F4519E251DDD5FE7000D175E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = YiDaSwift/Info.plist; sourceTree = "<group>"; };
+		F4680D8C1DDF72CD005EF43B /* TableViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TableViewController.storyboard; sourceTree = "<group>"; };
 		FBD8D66618FBD43833B0CA76 /* Pods_YiDaSwiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YiDaSwiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -526,6 +528,7 @@
 		F4519D6D1DDD5978000D175E /* Basics */ = {
 			isa = PBXGroup;
 			children = (
+				F4680D8B1DDF72A8005EF43B /* Table View Controller */,
 				F4519D6E1DDD5978000D175E /* Button */,
 				F4519D6F1DDD5978000D175E /* Navigation Controller */,
 				F4519D731DDD5978000D175E /* Scroll View */,
@@ -571,22 +574,12 @@
 			isa = PBXGroup;
 			children = (
 				F4519D8B1DDD5978000D175E /* TabBarController.storyboard */,
-				F4519D7C1DDD5978000D175E /* ClassRoster.swift */,
-				F4519D7D1DDD5978000D175E /* ClassRosterTableHeaderView.swift */,
-				F4519D7E1DDD5978000D175E /* ClassRosterTableViewController.swift */,
+				F4680D8F1DDF7C28005EF43B /* Photos Viewer */,
+				F4680D901DDF7C59005EF43B /* News List */,
 				F4519D7F1DDD5978000D175E /* CustomTabBar.swift */,
 				F4519D801DDD5978000D175E /* CustomTabBarController.swift */,
-				F4519D811DDD5978000D175E /* ImageBrowserViewController.swift */,
-				F4519D821DDD5978000D175E /* NewsListTableViewCell.swift */,
-				F4519D831DDD5978000D175E /* NewsListTableViewController.swift */,
-				F4519D841DDD5978000D175E /* PhotosCollectionSectionHeaderView.swift */,
-				F4519D851DDD5978000D175E /* PhotosCollectionViewCell.swift */,
-				F4519D861DDD5978000D175E /* PhotosCollectionViewController.swift */,
 				F4519D871DDD5978000D175E /* PresentedTabBarController.swift */,
-				F4519D881DDD5978000D175E /* Student.swift */,
-				F4519D891DDD5978000D175E /* StudentTableViewCell.swift */,
 				F4519D8A1DDD5978000D175E /* TabBarContentViewController.swift */,
-				F4519D8C1DDD5978000D175E /* WebBrowserViewController.swift */,
 			);
 			path = "Tab Bar Controller";
 			sourceTree = "<group>";
@@ -594,8 +587,8 @@
 		F4519D8D1DDD5978000D175E /* View Basics */ = {
 			isa = PBXGroup;
 			children = (
-				F4519D8E1DDD5978000D175E /* LoginFormViewController.swift */,
 				F4519D8F1DDD5978000D175E /* ViewAndControls.storyboard */,
+				F4519D8E1DDD5978000D175E /* LoginFormViewController.swift */,
 				F4519D901DDD5978000D175E /* ViewAnimationTableViewController.swift */,
 			);
 			path = "View Basics";
@@ -604,12 +597,12 @@
 		F4519D911DDD5978000D175E /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F4519D971DDD5978000D175E /* ViewController.storyboard */,
 				F4519D921DDD5978000D175E /* CustomPresentationTableViewController.swift */,
 				F4519D931DDD5978000D175E /* CustomPresentedViewController.swift */,
 				F4519D941DDD5978000D175E /* SlideInAnimator.swift */,
 				F4519D951DDD5978000D175E /* SlideInPresentationController.swift */,
 				F4519D961DDD5978000D175E /* SlideInPresentationManager.swift */,
-				F4519D971DDD5978000D175E /* ViewController.storyboard */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -630,6 +623,48 @@
 				F4519DE71DDD5EDC000D175E /* Mudox.swift */,
 			);
 			name = Bootstrap;
+			sourceTree = "<group>";
+		};
+		F4680D8B1DDF72A8005EF43B /* Table View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F4680D8C1DDF72CD005EF43B /* TableViewController.storyboard */,
+				F4680D8E1DDF7BDA005EF43B /* Class Roster */,
+			);
+			path = "Table View Controller";
+			sourceTree = "<group>";
+		};
+		F4680D8E1DDF7BDA005EF43B /* Class Roster */ = {
+			isa = PBXGroup;
+			children = (
+				F4519D7C1DDD5978000D175E /* ClassRoster.swift */,
+				F4519D7D1DDD5978000D175E /* ClassRosterTableHeaderView.swift */,
+				F4519D7E1DDD5978000D175E /* ClassRosterTableViewController.swift */,
+				F4519D881DDD5978000D175E /* Student.swift */,
+				F4519D891DDD5978000D175E /* StudentTableViewCell.swift */,
+			);
+			name = "Class Roster";
+			sourceTree = "<group>";
+		};
+		F4680D8F1DDF7C28005EF43B /* Photos Viewer */ = {
+			isa = PBXGroup;
+			children = (
+				F4519D841DDD5978000D175E /* PhotosCollectionSectionHeaderView.swift */,
+				F4519D851DDD5978000D175E /* PhotosCollectionViewCell.swift */,
+				F4519D861DDD5978000D175E /* PhotosCollectionViewController.swift */,
+				F4519D811DDD5978000D175E /* ImageBrowserViewController.swift */,
+			);
+			name = "Photos Viewer";
+			sourceTree = "<group>";
+		};
+		F4680D901DDF7C59005EF43B /* News List */ = {
+			isa = PBXGroup;
+			children = (
+				F4519D8C1DDD5978000D175E /* WebBrowserViewController.swift */,
+				F4519D821DDD5978000D175E /* NewsListTableViewCell.swift */,
+				F4519D831DDD5978000D175E /* NewsListTableViewController.swift */,
+			);
+			name = "News List";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -853,6 +888,7 @@
 			files = (
 				F41BA6581DDD6A6B00327C53 /* CNSurnames in Resources */,
 				F4519DC11DDD5978000D175E /* ScrollView.storyboard in Resources */,
+				F4680D8D1DDF72CD005EF43B /* TableViewController.storyboard in Resources */,
 				F4519DD61DDD5978000D175E /* TabBarController.storyboard in Resources */,
 				F4519DE41DDD5978000D175E /* LaunchScreen.storyboard in Resources */,
 				F41BA6561DDD6A6B00327C53 /* CNFemaleNames in Resources */,
@@ -1550,6 +1586,7 @@
 				F41BA6AA1DDD77DF00327C53 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F4519D0D1DDD589C000D175E /* Build configuration list for PBXProject "YiDaSwift" */ = {
 			isa = XCConfigurationList;

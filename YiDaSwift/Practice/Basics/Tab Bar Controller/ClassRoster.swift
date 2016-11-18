@@ -11,130 +11,104 @@ import SwiftDate
 
 fileprivate let jack = Jack.with(levelOfThisFile: .verbose)
 
-fileprivate func sortStudentsByName(_ students: [Student]) -> [Student] {
-  return students.sorted {
-    let compareResult = $0.fullName.compare($1.fullName, options: [], range: nil, locale: LocaleName.chineseChina.locale)
-    return compareResult == .orderedAscending
-  }
-}
-
-fileprivate func sortStudentsByAge(_ students: [Student]) -> [Student] {
-  return students.sorted {
-    return $0.age < $1.age
-  }
-}
-
-fileprivate func sortStudentsByID(_ students: [Student]) -> [Student] {
-  return students.sorted {
-    return $0.id < $1.id
-  }
-}
-
 struct ClassRoster {
 
+  var students: [Student]
+  var studentsGroupedByClassID: [String: [Student]] = [:]
+
   enum SortingCriteria {
-    case name, age, id
+    case name, age, id, none
   }
 
   init(students: [Student]) {
-    self.students = (students, Date())
-  }
+    self.students = students
 
-  var sortingCriteriaTimeStamp: Date = .distantPast
-  var sortingCriteria: SortingCriteria = .id {
-    didSet {
-      if oldValue != sortingCriteria {
-        sortingCriteriaTimeStamp = Date()
+    for s in students {
+      if studentsGroupedByClassID[s.classID] == nil {
+        studentsGroupedByClassID[s.classID] = []
       }
+      studentsGroupedByClassID[s.classID]?.append(s)
     }
   }
 
-  fileprivate var students: (data: [Student], timestamp: Date)
-  fileprivate var groupedView: (lastResult: [String: [Student]], timestamp: Date) = ([:], .distantPast)
-  fileprivate var ungroupedView: (lastResult: [Student], timestamp: Date) = ([], .distantPast)
-}
+  // MARK: Sorting
 
-// MARK: - Data views
-extension ClassRoster {
+  mutating func sortByName() {
+    let sorter = { (left: Student, right: Student) -> Bool in
+      let compareResult = left.fullName.compare(right.fullName, options: [], range: nil, locale: LocaleName.chineseChina.locale)
+      return compareResult == .orderedAscending
+    }
 
-  /** 
-   Students list grouped by class ID and ordered by .sortingCriteria within each group.
-   Result is cached, only regenerate if needed.
-   */
-  var grouped: [String: [Student]] {
-    mutating get {
+    students.sort(by: sorter)
 
-      if groupedView.timestamp >= students.timestamp
-      && groupedView.timestamp >= sortingCriteriaTimeStamp {
-        return groupedView.lastResult
-      }
-
-      jack.debug("generate new result")
-
-      var result: [String: [Student]] = [:]
-      for s in students.data {
-        result[s.classID] = result[s.classID] ?? [Student]()
-        result[s.classID]?.append(s)
-      }
-
-      switch sortingCriteria {
-      case .name:
-        for (key, students) in result {
-          result[key] = sortStudentsByName(students)
-        }
-      case .age:
-        for (key, students) in result {
-          result[key] = sortStudentsByAge(students)
-        }
-      case .id:
-        for (key, students) in result {
-          result[key] = sortStudentsByID(students)
-        }
-      }
-
-      groupedView.lastResult = result
-      groupedView.timestamp = Date()
-
-      return result
+    for key in studentsGroupedByClassID.keys {
+      studentsGroupedByClassID[key]!.sort(by: sorter)
     }
   }
+
+  mutating func sortByAge() {
+    let sorter = { (left: Student, right: Student) -> Bool in
+      return left.age < right.age
+    }
+
+    students.sort(by: sorter)
+
+    for key in studentsGroupedByClassID.keys {
+      studentsGroupedByClassID[key]!.sort(by: sorter)
+    }
+  }
+
+  mutating func sortByID() {
+    let sorter = { (left: Student, right: Student) -> Bool in
+      return left.id < right.id
+    }
+
+    students.sort(by: sorter)
+
+    for key in studentsGroupedByClassID.keys {
+      studentsGroupedByClassID[key]!.sort(by: sorter)
+    }
+  }
+
+  // MARK: Views
 
   var allClassIDs: [String] {
     mutating get {
-      return grouped.keys.sorted()
+      return studentsGroupedByClassID.keys.sorted()
     }
   }
 
-  /** 
-   Students list ungrouped (in one list) ordered by .sortingCriteria.
-   Result is cached, only regenerate if needed.
-   */
-  var ungrouped: [Student] {
-    mutating get {
-      if ungroupedView.timestamp >= students.timestamp
-      && ungroupedView.timestamp >= sortingCriteriaTimeStamp {
-        return ungroupedView.lastResult
-      }
+  // MARK: Add/Delete/Move student
 
-      jack.debug("generate new result")
+  mutating func removeStudent(_ student: Student) {
+    let indexOrNil = students.index {
+      (s: Student) -> Bool in
+      s.id == student.id
+    }
 
-      let result: [Student]
-      switch sortingCriteria {
-      case .name:
-        result = sortStudentsByName(students.data)
-      case .age:
-        result = sortStudentsByAge(students.data)
-      case .id:
-        result = sortStudentsByID(students.data)
-      }
-
-      ungroupedView.lastResult = result
-      ungroupedView.timestamp = Date()
-
-      return result
+    if let index = indexOrNil {
+      students.remove(at: index)
+    } else {
+      jack.warn("can not found the student to remove")
     }
   }
 
+  mutating func addStudent(_ student: Student) {
+    students.insert(student, at: 0)
+    studentsGroupedByClassID[student.classID]!.insert(student, at: 0)
+  }
+
+  mutating func moveStudent(at from: Int, to: Int) {
+    let sourceStudent = students[from]
+    students.remove(at: from)
+    students.insert(sourceStudent, at: to)
+  }
+
+  mutating func moveStudentInGroupedView(ofClass classID: String, at from: Int, to: Int) {
+    let sourceStudent = studentsGroupedByClassID[classID]![from]
+    studentsGroupedByClassID[classID]!.remove(at: from)
+    studentsGroupedByClassID[classID]!.insert(sourceStudent, at: to)
+  }
 }
 
 // MARK: - Generate fake data for demonstration
@@ -146,35 +120,51 @@ extension ClassRoster {
   static var fakeRoster: ClassRoster = {
 
     let students: [Student] = (0..<400).map { _ in
-      let age = 16 + UInt(arc4random_uniform(5))
-
-      // from A - Z
-      let ordinal = UnicodeScalar(0x41 + arc4random_uniform(26))!
-      let classID = String(Character(ordinal))
-
-      let surname = DataSource.random.aSurname
-      let name: String
-      let gender: Student.Gender
-      if arc4random_uniform(2) == 1 {
-        gender = .male
-        name = DataSource.random.aMaleName
-      } else {
-        gender = .female
-        name = DataSource.random.aFemaleName
-      }
-
-      fakeInstanceCount += 1
-
-      return Student(
-        surname: surname,
-        name: name,
-        age: age,
-        gender: gender,
-        classID: classID,
-        id: fakeInstanceCount
-      )
+      return ClassRoster.aFakeStudent()
     }
 
     return ClassRoster(students: students)
   }()
+
+  static func aFakeStudent() -> Student {
+    let age = 16 + UInt(arc4random_uniform(5))
+
+    // from A - Z
+    let ordinal = UnicodeScalar(0x41 + arc4random_uniform(26))!
+    let classID = String(Character(ordinal))
+
+    let surname = DataSource.random.aSurname
+    let name: String
+    let gender: Student.Gender
+    if arc4random_uniform(2) == 1 {
+      gender = .male
+      name = DataSource.random.aMaleName
+    } else {
+      gender = .female
+      name = DataSource.random.aFemaleName
+    }
+
+    fakeInstanceCount += 1
+
+    return Student(
+      surname: surname,
+      name: name,
+      age: age,
+      gender: gender,
+      classID: classID,
+      id: fakeInstanceCount
+    )
+  }
+
+  mutating func addAFakeStudent(withClassID classIDOrNil: String? = nil) {
+    var s = ClassRoster.aFakeStudent()
+    if let classID = classIDOrNil {
+      guard allClassIDs.contains(classID) else {
+        fatalError()
+      }
+      s.classID = classID
+    }
+
+    addStudent(s)
+  }
 }
