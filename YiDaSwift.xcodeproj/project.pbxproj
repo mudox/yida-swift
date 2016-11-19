@@ -528,10 +528,10 @@
 		F4519D6D1DDD5978000D175E /* Basics */ = {
 			isa = PBXGroup;
 			children = (
-				F4680D8B1DDF72A8005EF43B /* Table View Controller */,
 				F4519D6E1DDD5978000D175E /* Button */,
 				F4519D6F1DDD5978000D175E /* Navigation Controller */,
 				F4519D731DDD5978000D175E /* Scroll View */,
+				F4680D8B1DDF72A8005EF43B /* Table View Controller */,
 				F4519D7B1DDD5978000D175E /* Tab Bar Controller */,
 				F4519D8D1DDD5978000D175E /* View Basics */,
 				F4519D911DDD5978000D175E /* View Controller */,
@@ -574,8 +574,6 @@
 			isa = PBXGroup;
 			children = (
 				F4519D8B1DDD5978000D175E /* TabBarController.storyboard */,
-				F4680D8F1DDF7C28005EF43B /* Photos Viewer */,
-				F4680D901DDF7C59005EF43B /* News List */,
 				F4519D7F1DDD5978000D175E /* CustomTabBar.swift */,
 				F4519D801DDD5978000D175E /* CustomTabBarController.swift */,
 				F4519D871DDD5978000D175E /* PresentedTabBarController.swift */,
@@ -629,6 +627,8 @@
 			isa = PBXGroup;
 			children = (
 				F4680D8C1DDF72CD005EF43B /* TableViewController.storyboard */,
+				F4680D901DDF7C59005EF43B /* News List */,
+				F4680D8F1DDF7C28005EF43B /* Photos Viewer */,
 				F4680D8E1DDF7BDA005EF43B /* Class Roster */,
 			);
 			path = "Table View Controller";
@@ -655,6 +655,7 @@
 				F4519D811DDD5978000D175E /* ImageBrowserViewController.swift */,
 			);
 			name = "Photos Viewer";
+			path = "../Tab Bar Controller";
 			sourceTree = "<group>";
 		};
 		F4680D901DDF7C59005EF43B /* News List */ = {
@@ -665,6 +666,7 @@
 				F4519D831DDD5978000D175E /* NewsListTableViewController.swift */,
 			);
 			name = "News List";
+			path = "../Tab Bar Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

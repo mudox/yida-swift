@@ -61,10 +61,20 @@
     {
       "headerText": "表格视图 & 表格控制器（UITableView & UITableViewController)",
       "items": [{
-        "title": "标题未定",
-        "subtitle": "副标题未定",
-        "storyboardName": "",
-        "viewControllerReferenceID": ""
+        "title": "新闻列表",
+        "subtitle": "模仿新闻阅读类 App 新闻列表界面，点击浏览新闻内容",
+        "storyboardName": "TableViewController",
+        "viewControllerReferenceID": "News List Table View Controller"
+      }, {
+        "title": "照片库",
+        "subtitle": "第一个界面显示照片墙，点击单个照片可全屏浏览该照片，可以缩放，可评论",
+        "storyboardName": "TableViewController",
+        "viewControllerReferenceID": "Photos Table View Controller"
+      }, {
+        "title": "音乐播放器",
+        "subtitle": "显示一个歌曲列表，点击可播放该音乐",
+        "storyboardName": "TableViewController",
+        "viewControllerReferenceID": "Music Player Table View Controller"
       }, {
         "title": "学员花名册",
         "subtitle": "使用 UITableViewController 实现，可排序，索引，移动，删除，搜索",

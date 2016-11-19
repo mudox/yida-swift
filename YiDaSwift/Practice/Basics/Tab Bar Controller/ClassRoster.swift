@@ -81,16 +81,17 @@ struct ClassRoster {
   // MARK: Add/Delete/Move student
 
   mutating func removeStudent(_ student: Student) {
-    let indexOrNil = students.index {
+    var index = students.index(where: {
       (s: Student) -> Bool in
       s.id == student.id
-    }
+    })!
+    students.remove(at: index)
 
-    if let index = indexOrNil {
-      students.remove(at: index)
-    } else {
-      jack.warn("can not found the student to remove")
-    }
+    index = studentsGroupedByClassID[student.classID]!.index(where: {
+      (s: Student) -> Bool in
+      s.id == student.id
+    })!
+    studentsGroupedByClassID[student.classID]!.remove(at: index)
   }
 
   mutating func addStudent(_ student: Student) {
