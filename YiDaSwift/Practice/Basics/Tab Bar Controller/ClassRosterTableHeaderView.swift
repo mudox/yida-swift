@@ -35,22 +35,33 @@ class ClassRosterTableHeaderView: UITableViewHeaderFooterView {
     fatalError("init(coder:) has not been implemented")
   }
 
+  lazy var gradientLayer: CAGradientLayer = {
+    let layer = CAGradientLayer()
+    layer.colors = [
+      theWindow.tintColor.cgColor,
+      theWindow.tintColor.cgColor,
+      UIColor(white: 1, alpha: 0).cgColor
+    ]
+    layer.locations = [0, 0.3, 0.85] as [NSNumber]
+    layer.startPoint = CGPoint(x: 0, y: 0.5)
+    layer.endPoint = CGPoint(x: 1.2, y: 0.5)
+    return layer
+  }()
+
   func initSelf() {
     contentView.backgroundColor = .white
 
     // class ID label
     classIDLabel.textColor = .white
-    let cornerRadius: CGFloat = 4
-    classIDLabel.layer.cornerRadius = cornerRadius
-    classIDLabel.layer.masksToBounds = true
+    classIDLabel.layer.insertSublayer(gradientLayer, at: 0)
+
     classIDLabel.font = UIFont.systemFont(ofSize: 15, weight: UIFontWeightBold)
     classIDLabel.textAlignment = .center
 
     contentView.addSubview(classIDLabel)
     classIDLabel.snp.makeConstraints { make in
-      make.width.equalTo(88)
       make.height.equalTo(23)
-      make.leading.equalTo(self).offset(-(cornerRadius + 5))
+      make.leading.equalTo(self)
       make.bottom.equalTo(self).offset(-4)
     }
 
@@ -65,13 +76,12 @@ class ClassRosterTableHeaderView: UITableViewHeaderFooterView {
   }
 
   override func tintColorDidChange() {
-    classIDLabel.backgroundColor = theWindow.tintColor
     classSummaryLabel.textColor = theWindow.tintColor
   }
 
   func set(withClassInfo studentList: [Student]) {
     let classID = studentList[0].classID
-    classIDLabel.text = "  iOS \(classID) 班"
+    classIDLabel.text = " iOS \(classID) 班"
 
     var maleCount = 0
     var femaleCount = 0
@@ -85,6 +95,13 @@ class ClassRosterTableHeaderView: UITableViewHeaderFooterView {
 
     let summaryText = "\(maleCount)男 \(femaleCount)女 总计\(studentList.count)名学员"
     classSummaryLabel.text = summaryText
+  }
+
+  override func layoutSubviews() {
+    super.layoutSubviews()
+
+    gradientLayer.frame = classIDLabel.bounds
+    gradientLayer.frame.size.width += 40
   }
 
 }

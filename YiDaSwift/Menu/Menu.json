@@ -18,25 +18,28 @@
         "subtitle": "模拟登录界面",
         "storyboardName": "ViewAndControls",
         "viewControllerReferenceID": "Login Form Interface",
-        "presenting": "Cross Dissolve"
+        "presenting": "Cross Dissolve",
+        "state": "Good To Go"
       }]
     },
 
     {
-      "headerText": "滚动视图（UIScrollView）",
+      "headerText": "滚动视图",
       "items": [{
         "title": "滚动视图基本原理",
         "subtitle": "观察滚动视图的工作原理",
         "storyboardName": "ScrollView",
-        "viewControllerReferenceID": "Inspect Scroll View"
+        "viewControllerReferenceID": "Inspect Scroll View",
+        "state": "Good To Go"
       }, {
         "title": "滚动视图应用",
         "subtitle": "多图陈列，动画滑动，图片阵列",
         "storyboardName": "ScrollView",
-        "viewControllerReferenceID": "Scroll View Tasks"
+        "viewControllerReferenceID": "Scroll View Tasks",
+        "state": "Good To Go"
       }, {
         "title": "Showcase View",
-        "subtitle": "一个简单的轮播滚动视图实现，继承自 UIScrollView",
+        "subtitle": "一个简单的轮播滚动视图实现，上下或者左右布局，可以自动轮转，无限循环，用户可以自由拖动",
         "storyboardName": "ScrollView",
         "viewControllerReferenceID": "Showcase Scroll View"
       }]
@@ -44,7 +47,7 @@
     },
 
     {
-      "headerText": "视图控制器（UIViewController)",
+      "headerText": "视图控制器",
       "items": [{
         "title": "标题未定",
         "subtitle": "副标题未定",
@@ -59,15 +62,16 @@
     },
 
     {
-      "headerText": "表格视图 & 表格控制器（UITableView & UITableViewController)",
+      "headerText": "表格视图 & 表格控制器",
       "items": [{
         "title": "新闻列表",
         "subtitle": "模仿新闻阅读类 App 新闻列表界面，点击浏览新闻内容",
         "storyboardName": "TableViewController",
-        "viewControllerReferenceID": "News List Table View Controller"
+        "viewControllerReferenceID": "News List Table View Controller",
+        "state": "Good To Go"
       }, {
         "title": "照片库",
-        "subtitle": "第一个界面显示照片墙，点击单个照片可全屏浏览该照片，可以缩放，可评论",
+        "subtitle": "实现一个照片墙，点击单个照片可全屏浏览该照片，可以缩放，可评论",
         "storyboardName": "TableViewController",
         "viewControllerReferenceID": "Photos Table View Controller"
       }, {
@@ -79,34 +83,38 @@
         "title": "学员花名册",
         "subtitle": "使用 UITableViewController 实现，可排序，索引，移动，删除，搜索",
         "storyboardName": "TableViewController",
-        "viewControllerReferenceID": "Class Roster Table View Controller"
+        "viewControllerReferenceID": "Class Roster Table View Controller",
+        "state": "Pinned"
       }]
     },
 
     {
-      "headerText": "导航控制器（UINavigationController）",
+      "headerText": "导航控制器",
       "items": [{
         "title": "子视图管理",
         "subtitle": "推入，弹出指定的子视图",
         "storyboardName": "NavigationController",
-        "viewControllerReferenceID": "Navigation Controller Manages Content View Controllers"
+        "viewControllerReferenceID": "Navigation Controller Manages Content View Controllers",
+        "state": "Good To Go"
       }, {
         "title": "自定义导航控制器",
         "subtitle": "自定义导航栏，工具栏",
         "storyboardName": "NavigationController",
-        "viewControllerReferenceID": "Customize Navigation Controller"
+        "viewControllerReferenceID": "Customize Navigation Controller",
+        "state": "Good To Go"
       }]
 
     },
 
     {
-      "headerText": "分栏控制器（UITabBarController）",
+      "headerText": "分栏控制器",
       "items": [{
         "title": "子视图管理",
         "subtitle": "管理，切换子视图",
         "storyboardName": "TabBarController",
         "viewControllerReferenceID": "Tab Bar Controller Manages Content View Controller",
-        "presenting": "Cross Dissolve"
+        "presenting": "Cross Dissolve",
+        "state": "Good To Go"
       }, {
         "title": "自定义分栏控制器",
         "subtitle": "自定义分栏，以及子视图控制器的切换过渡动画",
@@ -114,16 +122,17 @@
         "viewControllerReferenceID": "",
         "presenting": "Cross Dissolve"
       }, {
-        "title": "综合练习",
+        "title": "综合应用",
         "subtitle": "新闻，相册，音乐播放器，浏览器，联系人",
         "storyboardName": "TabBarController",
         "viewControllerReferenceID": "Tab Bar Controller In Reality",
-        "presenting": "Cross Dissolve"
+        "presenting": "Cross Dissolve",
+        "state": "Pinned"
       }]
     },
 
     {
-      "headerText": "自动布局（Auto Layout）",
+      "headerText": "自动布局",
       "items": [{
         "title": "静态布局",
         "subtitle": "常见使用场景的演示",
@@ -168,7 +177,7 @@
     },
 
     {
-      "headerText": "自动布局（Auto Layout）",
+      "headerText": "自动布局",
       "items": [{
         "title": "静态布局",
         "subtitle": "常见使用场景的演示",

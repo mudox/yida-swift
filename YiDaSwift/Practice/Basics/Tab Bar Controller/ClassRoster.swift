@@ -1,5 +1,4 @@
-//
-//  ClassRoster.swift
+// ClassRoster.swift
 //  Main
 //
 //  Created by Mudox on 15/11/2016.
@@ -13,22 +12,53 @@ fileprivate let jack = Jack.with(levelOfThisFile: .verbose)
 
 struct ClassRoster {
 
-  var students: [Student]
-  var studentsGroupedByClassID: [String: [Student]] = [:]
+  fileprivate var ungrouped: (list: [Student], date: Date) = ([], .distantPast)
+  fileprivate var grouped: (dict: [String: [Student]], date: Date) = ([:], .distantPast)
 
-  enum SortingCriteria {
-    case name, age, id, none
+  fileprivate var searchResult: (ungrouped: [Student], grouped: [String: [Student]], date: Date) = ([], [:], .distantPast)
+
+  // nil for not searching
+  var searchString: String = "" {
+    didSet {
+      if oldValue != searchString {
+        if isSearchModeEnabled {
+          updateSearchResult()
+        }
+      }
+    }
   }
 
-  init(students: [Student]) {
-    self.students = students
-
-    for s in students {
-      if studentsGroupedByClassID[s.classID] == nil {
-        studentsGroupedByClassID[s.classID] = []
+  var isSearchModeEnabled = false {
+    didSet {
+      if oldValue != isSearchModeEnabled {
+        updateSearchResult()
       }
-      studentsGroupedByClassID[s.classID]?.append(s)
     }
+  }
+
+//  enum SortingCriteria {
+//    case name, age, id, none
+//  }
+
+  init(students: [Student]) {
+    ungrouped.list = students
+    ungrouped.date = Date()
+
+    grouped.dict = groupStudentsByClassID(ungrouped.list)
+    grouped.date = Date()
+  }
+
+  /// Called in .init() & .updateSearchResult() method to (re)generate .grouped data structure
+  mutating func groupStudentsByClassID(_ students: [Student]) -> [String: [Student]] {
+    var dict: [String: [Student]] = [:]
+    for s in students {
+      if dict[s.classID] == nil {
+        dict[s.classID] = []
+      }
+      dict[s.classID]?.append(s)
+    }
+
+    return dict
   }
 
   // MARK: Sorting
@@ -39,11 +69,11 @@ struct ClassRoster {
       return compareResult == .orderedAscending
     }
 
-    students.sort(by: sorter)
+    ungrouped.list.sort(by: sorter)
+    grouped.dict = groupStudentsByClassID(ungrouped.list)
 
-    for key in studentsGroupedByClassID.keys {
-      studentsGroupedByClassID[key]!.sort(by: sorter)
-    }
+    searchResult.ungrouped.sort(by: sorter)
+    searchResult.grouped = groupStudentsByClassID(searchResult.ungrouped)
   }
 
   mutating func sortByAge() {
@@ -51,11 +81,12 @@ struct ClassRoster {
       return left.age < right.age
     }
 
-    students.sort(by: sorter)
+    ungrouped.list.sort(by: sorter)
+    grouped.dict = groupStudentsByClassID(ungrouped.list)
 
-    for key in studentsGroupedByClassID.keys {
-      studentsGroupedByClassID[key]!.sort(by: sorter)
-    }
+    searchResult.ungrouped.sort(by: sorter)
+    searchResult.grouped = groupStudentsByClassID(searchResult.ungrouped)
+
   }
 
   mutating func sortByID() {
@@ -63,52 +94,110 @@ struct ClassRoster {
       return left.id < right.id
     }
 
-    students.sort(by: sorter)
+    ungrouped.list.sort(by: sorter)
+    grouped.dict = groupStudentsByClassID(ungrouped.list)
 
-    for key in studentsGroupedByClassID.keys {
-      studentsGroupedByClassID[key]!.sort(by: sorter)
-    }
+    searchResult.ungrouped.sort(by: sorter)
+    searchResult.grouped = groupStudentsByClassID(searchResult.ungrouped)
+
   }
 
   // MARK: Views
 
   var allClassIDs: [String] {
     mutating get {
-      return studentsGroupedByClassID.keys.sorted()
+      return groupedView.keys.sorted()
+    }
+  }
+
+  mutating func updateSearchResult() {
+    guard !searchString.isEmpty else {
+      searchResult = (ungrouped.list, grouped.dict, Date())
+      return
+    }
+
+    jack.debug("apply search with work: \(searchString)")
+
+    self.searchResult.ungrouped = ungrouped.list.filter { (s: Student) -> Bool in
+      let pinyin = s.fullName.toPinyin()
+      let pinyinAcronym = s.fullName.toPinyinAcronym()
+      let allInOneText = "\(pinyin)\(pinyinAcronym)\(s.fullName)\(s.age)\(s.gender)\(s.classID)\(s.idString)"
+      return allInOneText.contains(searchString)
+    }
+
+    searchResult.grouped = groupStudentsByClassID(searchResult.ungrouped)
+
+    self.searchResult.date = Date()
+  }
+
+  /// It take search string into consideration, if searh string is nil return the back store directly.
+  var ungroupedView: [Student] {
+    mutating get {
+      if isSearchModeEnabled {
+        return searchResult.ungrouped
+      } else {
+        return ungrouped.list
+      }
+    }
+  }
+
+  /// It take search string into consideration, if searh string is nil return the back store directly.
+  var groupedView: [String: [Student]] {
+    mutating get {
+      if isSearchModeEnabled {
+        return searchResult.grouped
+      } else {
+        return grouped.dict
+      }
     }
   }
 
   // MARK: Add/Delete/Move student
 
   mutating func removeStudent(_ student: Student) {
-    var index = students.index(where: {
+    var index = ungrouped.list.index(where: {
       (s: Student) -> Bool in
       s.id == student.id
     })!
-    students.remove(at: index)
+    ungrouped.list.remove(at: index)
+    ungrouped.date = Date()
 
-    index = studentsGroupedByClassID[student.classID]!.index(where: {
+    index = grouped.dict[student.classID]!.index(where: {
       (s: Student) -> Bool in
       s.id == student.id
     })!
-    studentsGroupedByClassID[student.classID]!.remove(at: index)
+    grouped.dict[student.classID]!.remove(at: index)
+    grouped.date = Date()
+
+    updateSearchResult()
   }
 
   mutating func addStudent(_ student: Student) {
-    students.insert(student, at: 0)
-    studentsGroupedByClassID[student.classID]!.insert(student, at: 0)
+    ungrouped.list.insert(student, at: 0)
+    ungrouped.date = Date()
+
+    grouped.dict[student.classID]!.insert(student, at: 0)
+    grouped.date = Date()
+
+    updateSearchResult()
   }
 
   mutating func moveStudent(at from: Int, to: Int) {
-    let sourceStudent = students[from]
-    students.remove(at: from)
-    students.insert(sourceStudent, at: to)
+    let sourceStudent = ungrouped.list[from]
+    ungrouped.list.remove(at: from)
+    ungrouped.list.insert(sourceStudent, at: to)
+    ungrouped.date = Date()
+
+    updateSearchResult()
   }
 
   mutating func moveStudentInGroupedView(ofClass classID: String, at from: Int, to: Int) {
-    let sourceStudent = studentsGroupedByClassID[classID]![from]
-    studentsGroupedByClassID[classID]!.remove(at: from)
-    studentsGroupedByClassID[classID]!.insert(sourceStudent, at: to)
+    let sourceStudent = grouped.dict[classID]![from]
+    grouped.dict[classID]!.remove(at: from)
+    grouped.dict[classID]!.insert(sourceStudent, at: to)
+    grouped.date = Date()
+
+    updateSearchResult()
   }
 }
 
@@ -120,11 +209,11 @@ extension ClassRoster {
   /// Fake data source for demonstration
   static var fakeRoster: ClassRoster = {
 
-    let students: [Student] = (0..<400).map { _ in
+    let fakeStudents: [Student] = (0..<400).map { _ in
       return ClassRoster.aFakeStudent()
     }
 
-    return ClassRoster(students: students)
+    return ClassRoster(students: fakeStudents)
   }()
 
   static func aFakeStudent() -> Student {

@@ -13,10 +13,11 @@ class StudentTableViewCell: UITableViewCell {
   static let identifier = "Student Table View Cell"
 
   // MARK: Outlets
+  @IBOutlet weak var stackView: UIStackView!
   @IBOutlet weak var nameLabel: UILabel!
   @IBOutlet weak var ageLabel: UILabel!
   @IBOutlet weak var genderLabel: UILabel!
-  @IBOutlet weak var classIDLabel: UILabel!
+  @IBOutlet var classIDLabel: UILabel!
   @IBOutlet weak var studentIDLabel: UILabel!
 
   func set(withInfo student: Student) {

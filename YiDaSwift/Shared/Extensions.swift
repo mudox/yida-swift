@@ -20,7 +20,7 @@ extension UIViewController {
       return
     }
 
-    let buttonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "NavIcon-Dismiss"), style: .done, target: self, action: #selector(dismiss(sender:)))
+    let buttonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "NavIcon-Dismiss-ViewController"), style: .done, target: self, action: #selector(dismiss(sender:)))
     navigationItem.leftBarButtonItem = buttonItem
   }
 

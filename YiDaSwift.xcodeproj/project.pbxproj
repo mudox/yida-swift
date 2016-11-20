@@ -61,7 +61,6 @@
 		F4519DB71DDD5978000D175E /* RootMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4519D631DDD5978000D175E /* RootMenuTableViewCell.swift */; };
 		F4519DB81DDD5978000D175E /* RootMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4519D641DDD5978000D175E /* RootMenuViewController.swift */; };
 		F4519DB91DDD5978000D175E /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4519D651DDD5978000D175E /* RootNavigationController.swift */; };
-		F4519DBA1DDD5978000D175E /* YDTintedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4519D661DDD5978000D175E /* YDTintedLabel.swift */; };
 		F4519DBB1DDD5978000D175E /* PopAnimation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4519D6A1DDD5978000D175E /* PopAnimation.storyboard */; };
 		F4519DBC1DDD5978000D175E /* PopLabelMovingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4519D6B1DDD5978000D175E /* PopLabelMovingTableViewController.swift */; };
 		F4519DBD1DDD5978000D175E /* CustomNavigationControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4519D701DDD5978000D175E /* CustomNavigationControllerViewController.swift */; };
@@ -106,6 +105,13 @@
 		F4519DE41DDD5978000D175E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4519D9C1DDD5978000D175E /* LaunchScreen.storyboard */; };
 		F4519DE81DDD5EDC000D175E /* Mudox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4519DE71DDD5EDC000D175E /* Mudox.swift */; };
 		F4680D8D1DDF72CD005EF43B /* TableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4680D8C1DDF72CD005EF43B /* TableViewController.storyboard */; };
+		F47DB0AA1DE0550E00A2BA25 /* Graphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47DB0A91DE0550E00A2BA25 /* Graphics.swift */; };
+		F47DB0B31DE1791000A2BA25 /* unicode_to_hanyu_pinyin.txt in Resources */ = {isa = PBXBuildFile; fileRef = F47DB0AD1DE1791000A2BA25 /* unicode_to_hanyu_pinyin.txt */; };
+		F47DB0B41DE1791000A2BA25 /* HanziPinyin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47DB0AE1DE1791000A2BA25 /* HanziPinyin.swift */; };
+		F47DB0B51DE1791000A2BA25 /* HanziPinyinResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47DB0AF1DE1791000A2BA25 /* HanziPinyinResource.swift */; };
+		F47DB0B61DE1791000A2BA25 /* PinyinFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47DB0B01DE1791000A2BA25 /* PinyinFormatter.swift */; };
+		F47DB0B71DE1791000A2BA25 /* PinyinOutputFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47DB0B11DE1791000A2BA25 /* PinyinOutputFormat.swift */; };
+		F47DB0B81DE1791000A2BA25 /* String+HanziPinyin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47DB0B21DE1791000A2BA25 /* String+HanziPinyin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -212,7 +218,6 @@
 		F4519D631DDD5978000D175E /* RootMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootMenuTableViewCell.swift; sourceTree = "<group>"; };
 		F4519D641DDD5978000D175E /* RootMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootMenuViewController.swift; sourceTree = "<group>"; };
 		F4519D651DDD5978000D175E /* RootNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
-		F4519D661DDD5978000D175E /* YDTintedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YDTintedLabel.swift; sourceTree = "<group>"; };
 		F4519D6A1DDD5978000D175E /* PopAnimation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PopAnimation.storyboard; sourceTree = "<group>"; };
 		F4519D6B1DDD5978000D175E /* PopLabelMovingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopLabelMovingTableViewController.swift; sourceTree = "<group>"; };
 		F4519D701DDD5978000D175E /* CustomNavigationControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationControllerViewController.swift; sourceTree = "<group>"; };
@@ -258,6 +263,13 @@
 		F4519DE71DDD5EDC000D175E /* Mudox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mudox.swift; sourceTree = "<group>"; };
 		F4519E251DDD5FE7000D175E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = YiDaSwift/Info.plist; sourceTree = "<group>"; };
 		F4680D8C1DDF72CD005EF43B /* TableViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TableViewController.storyboard; sourceTree = "<group>"; };
+		F47DB0A91DE0550E00A2BA25 /* Graphics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graphics.swift; sourceTree = "<group>"; };
+		F47DB0AD1DE1791000A2BA25 /* unicode_to_hanyu_pinyin.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = unicode_to_hanyu_pinyin.txt; sourceTree = "<group>"; };
+		F47DB0AE1DE1791000A2BA25 /* HanziPinyin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HanziPinyin.swift; sourceTree = "<group>"; };
+		F47DB0AF1DE1791000A2BA25 /* HanziPinyinResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HanziPinyinResource.swift; sourceTree = "<group>"; };
+		F47DB0B01DE1791000A2BA25 /* PinyinFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinyinFormatter.swift; sourceTree = "<group>"; };
+		F47DB0B11DE1791000A2BA25 /* PinyinOutputFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinyinOutputFormat.swift; sourceTree = "<group>"; };
+		F47DB0B21DE1791000A2BA25 /* String+HanziPinyin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+HanziPinyin.swift"; sourceTree = "<group>"; };
 		FBD8D66618FBD43833B0CA76 /* Pods_YiDaSwiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YiDaSwiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -484,7 +496,6 @@
 				F4519D631DDD5978000D175E /* RootMenuTableViewCell.swift */,
 				F4519D641DDD5978000D175E /* RootMenuViewController.swift */,
 				F4519D651DDD5978000D175E /* RootNavigationController.swift */,
-				F4519D661DDD5978000D175E /* YDTintedLabel.swift */,
 			);
 			name = Menu;
 			path = YiDaSwift/Menu;
@@ -608,6 +619,8 @@
 		F4519D981DDD5978000D175E /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				F47DB0AB1DE178ED00A2BA25 /* HanziPinYin */,
+				F47DB0A91DE0550E00A2BA25 /* Graphics.swift */,
 				F4519D991DDD5978000D175E /* AppTheme.swift */,
 				F4519D9A1DDD5978000D175E /* Extensions.swift */,
 			);
@@ -667,6 +680,27 @@
 			);
 			name = "News List";
 			path = "../Tab Bar Controller";
+			sourceTree = "<group>";
+		};
+		F47DB0AB1DE178ED00A2BA25 /* HanziPinYin */ = {
+			isa = PBXGroup;
+			children = (
+				F47DB0AC1DE1791000A2BA25 /* Resources */,
+				F47DB0AE1DE1791000A2BA25 /* HanziPinyin.swift */,
+				F47DB0AF1DE1791000A2BA25 /* HanziPinyinResource.swift */,
+				F47DB0B01DE1791000A2BA25 /* PinyinFormatter.swift */,
+				F47DB0B11DE1791000A2BA25 /* PinyinOutputFormat.swift */,
+				F47DB0B21DE1791000A2BA25 /* String+HanziPinyin.swift */,
+			);
+			name = HanziPinYin;
+			sourceTree = "<group>";
+		};
+		F47DB0AC1DE1791000A2BA25 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F47DB0AD1DE1791000A2BA25 /* unicode_to_hanyu_pinyin.txt */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -900,6 +934,7 @@
 				F41BA6571DDD6A6B00327C53 /* CNMaleNames in Resources */,
 				F4519DD91DDD5978000D175E /* ViewAndControls.storyboard in Resources */,
 				F4519D9E1DDD5978000D175E /* Assets.xcassets in Resources */,
+				F47DB0B31DE1791000A2BA25 /* unicode_to_hanyu_pinyin.txt in Resources */,
 				F4519DBB1DDD5978000D175E /* PopAnimation.storyboard in Resources */,
 				F41BA6681DDD6A6B00327C53 /* News.json in Resources */,
 				F4519DE01DDD5978000D175E /* ViewController.storyboard in Resources */,
@@ -1195,6 +1230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F41BA6591DDD6A6B00327C53 /* DataSource.swift in Sources */,
+				F47DB0B41DE1791000A2BA25 /* HanziPinyin.swift in Sources */,
 				F4519DC71DDD5978000D175E /* ClassRoster.swift in Sources */,
 				F4519DBE1DDD5978000D175E /* NavigationContentViewController.swift in Sources */,
 				F4519DC21DDD5978000D175E /* ScrollViewInspectorTableViewController.swift in Sources */,
@@ -1214,7 +1250,10 @@
 				F4519DC91DDD5978000D175E /* ClassRosterTableViewController.swift in Sources */,
 				F41BA6691DDD6A6B00327C53 /* News.swift in Sources */,
 				F4519DBC1DDD5978000D175E /* PopLabelMovingTableViewController.swift in Sources */,
+				F47DB0B51DE1791000A2BA25 /* HanziPinyinResource.swift in Sources */,
 				F4519DC51DDD5978000D175E /* ScrollViewTask3ViewController.swift in Sources */,
+				F47DB0B61DE1791000A2BA25 /* PinyinFormatter.swift in Sources */,
+				F47DB0B81DE1791000A2BA25 /* String+HanziPinyin.swift in Sources */,
 				F4519DB61DDD5978000D175E /* Menu.swift in Sources */,
 				F4519DBD1DDD5978000D175E /* CustomNavigationControllerViewController.swift in Sources */,
 				F41BA65A1DDD6A6B00327C53 /* PlaceholderImageGenerator.swift in Sources */,
@@ -1222,14 +1261,15 @@
 				F4519DB91DDD5978000D175E /* RootNavigationController.swift in Sources */,
 				F4519DD51DDD5978000D175E /* TabBarContentViewController.swift in Sources */,
 				F4519DD21DDD5978000D175E /* PresentedTabBarController.swift in Sources */,
-				F4519DBA1DDD5978000D175E /* YDTintedLabel.swift in Sources */,
 				F4519DC01DDD5978000D175E /* CenteredZoomOutScrollView.swift in Sources */,
 				F4519DC81DDD5978000D175E /* ClassRosterTableHeaderView.swift in Sources */,
 				F4519DDA1DDD5978000D175E /* ViewAnimationTableViewController.swift in Sources */,
 				F4519DE11DDD5978000D175E /* AppTheme.swift in Sources */,
 				F4519DD71DDD5978000D175E /* WebBrowserViewController.swift in Sources */,
 				F4519DCB1DDD5978000D175E /* CustomTabBarController.swift in Sources */,
+				F47DB0B71DE1791000A2BA25 /* PinyinOutputFormat.swift in Sources */,
 				F4519DCC1DDD5978000D175E /* ImageBrowserViewController.swift in Sources */,
+				F47DB0AA1DE0550E00A2BA25 /* Graphics.swift in Sources */,
 				F41BA65C1DDD6A6B00327C53 /* LyricsParser.swift in Sources */,
 				F41BA66A1DDD6A6B00327C53 /* RandomDataSource.swift in Sources */,
 				F4519DDD1DDD5978000D175E /* SlideInAnimator.swift in Sources */,
