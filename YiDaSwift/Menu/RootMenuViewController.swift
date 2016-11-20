@@ -53,6 +53,7 @@ extension RootMenuViewController {
 
   func applyFiltering() {
     var states: MenuItemState = []
+
     if filterGoodToGoButton.isSelected {
       states.insert(.goodToGo)
     }
@@ -93,6 +94,12 @@ extension RootMenuViewController {
     filterPlanningButton.tag = MenuItemState.planning.rawValue
     filterAllButton.tag = MenuItemState.all.rawValue
 
+    filterAllButton.isSelected = true
+    filterGoodToGoButton.isSelected = false
+    filterPinnedButton.isSelected = false
+    filterWorkingInProcessButton.isSelected = false
+    filterPlanningButton.isSelected = false
+
     // show count on selected state
 //    filterGoodToGoButton.setTitle("\(menuPart!.itemCounts[.goodToGo]!)", for: .selected)
 //    filterPinnedButton.setTitle("\(menuPart!.itemCounts[.pinned]!)", for: .selected)
@@ -115,6 +122,8 @@ extension RootMenuViewController {
             self.filterPinnedButton.isSelected = false
             self.filterWorkingInProcessButton.isSelected = false
             self.filterPlanningButton.isSelected = false
+
+            self.applyFiltering()
             return
           }
         } else { // buttons except .all button
@@ -160,9 +169,17 @@ extension RootMenuViewController {
     assert(baseThemeColor != nil)
     theWindow.tintColor = baseThemeColor
 
+    // reset filtering
+    filterAllButton.isSelected = true
+    filterGoodToGoButton.isSelected = false
+    filterPinnedButton.isSelected = false
+    filterWorkingInProcessButton.isSelected = false
+    filterPlanningButton.isSelected = false
+
+    menuPart!.filterItemStates = .all
+
     tableView.reloadData()
     tableView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: false)
-    setupFilterButtons()
 
     pullUpMenu(withTopMostDiv: topMostDiv)
   }
@@ -299,6 +316,8 @@ extension RootMenuViewController {
     // auto-sizing table view cells
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.estimatedRowHeight = 60
+
+    setupFilterButtons()
   }
 
   override func viewWillAppear(_ animated: Bool) {
