@@ -9,8 +9,12 @@
 import UIKit
 import SwiftyJSON
 
+import RxSwift
+import RxCocoa
+
 class RootMenuViewController: UIViewController {
 
+  // MARK: Overlay menu outlets
   @IBOutlet weak var expandButton: UIBarButtonItem!
 
   @IBOutlet weak var basicDiv: UIView!
@@ -25,18 +29,112 @@ class RootMenuViewController: UIViewController {
   @IBOutlet var overlayDivs: [UIView]!
   @IBOutlet var overlayButtons: [UIButton]!
 
+  // MARK: Table view outlets
   @IBOutlet weak var tableView: UITableView!
 
-  @IBOutlet weak var filterControl: UISegmentedControl!
+  @IBOutlet var filterButtons: [UIButton]!
+  @IBOutlet weak var filterGoodToGoButton: UIButton!
+  @IBOutlet weak var filterPinnedButton: UIButton!
+  @IBOutlet weak var filterWorkingInProcessButton: UIButton!
+  @IBOutlet weak var filterPlanningButton: UIButton!
+  @IBOutlet weak var filterAllButton: UIButton!
 
   var baseThemeColor: UIColor?
 
   /// If is nil, the top level menu overlay is expanded to cover the whole space.
-  var menuPart: [MenuSection]?
+  var menuPart: MenuPart?
+
+  var disposeBag = DisposeBag()
+
 }
 
 // MARK: - Menu Expanding & Shrunking
 extension RootMenuViewController {
+
+  func applyFiltering() {
+    var states: MenuItemState = []
+    if filterGoodToGoButton.isSelected {
+      states.insert(.goodToGo)
+    }
+
+    if filterPinnedButton.isSelected {
+      states.insert(.pinned)
+    }
+
+    if filterWorkingInProcessButton.isSelected {
+      states.insert(.workingInProcess)
+    }
+
+    if filterPlanningButton.isSelected {
+      states.insert(.planning)
+    }
+
+    if filterAllButton.isSelected {
+      guard states.isEmpty else {
+        fatalError("button isSelected states management is broken")
+      }
+
+      states = .all
+    }
+
+    menuPart!.filterItemStates = states
+    tableView.reloadData()
+  }
+
+  func setupFilterButtons() {
+//    filterButtons.forEach {
+//      $0.layer.borderColor = theWindow.tintColor.cgColor
+//      $0.layer.borderWidth = 1
+//    }
+
+    filterGoodToGoButton.tag = MenuItemState.goodToGo.rawValue
+    filterPinnedButton.tag = MenuItemState.pinned.rawValue
+    filterWorkingInProcessButton.tag = MenuItemState.workingInProcess.rawValue
+    filterPlanningButton.tag = MenuItemState.planning.rawValue
+    filterAllButton.tag = MenuItemState.all.rawValue
+
+    // show count on selected state
+//    filterGoodToGoButton.setTitle("\(menuPart!.itemCounts[.goodToGo]!)", for: .selected)
+//    filterPinnedButton.setTitle("\(menuPart!.itemCounts[.pinned]!)", for: .selected)
+//    filterWorkingInProcessButton.setTitle("\(menuPart!.itemCounts[.workingInProcess]!)", for: .selected)
+//    filterPlanningButton.setTitle("\(menuPart!.itemCounts[.planning]!)", for: .selected)
+//    filterAllButton.setTitle("\(menuPart!.itemCounts[.all]!)", for: .selected)
+
+    filterButtons.forEach { button in
+      button.rx.tap.subscribe(onNext: { [unowned self] in
+        let state = MenuItemState(rawValue: button.tag)
+
+        if button == self.filterAllButton { // .all button
+          if button.isSelected {
+            // clicking .all button that is already selected is a nop
+            return
+          } else {
+            // clicking .all button that is not selected, deselect all other filter button
+            button.isSelected = true
+            self.filterGoodToGoButton.isSelected = false
+            self.filterPinnedButton.isSelected = false
+            self.filterWorkingInProcessButton.isSelected = false
+            self.filterPlanningButton.isSelected = false
+            return
+          }
+        } else { // buttons except .all button
+          button.isSelected = !button.isSelected
+
+          // deselecting a non .all button that is the only non .all button selected, select .all button
+          if !button.isSelected && self.menuPart!.filterItemStates == state {
+            self.filterAllButton.isSelected = true
+          }
+
+          // selecting non .all button deselect .all button
+          if button.isSelected {
+            self.filterAllButton.isSelected = false
+          }
+        }
+
+        self.applyFiltering()
+      }).addDisposableTo(self.disposeBag)
+    }
+  }
 
   @IBAction func partButtonTapped(_ sender: UIButton) {
 
@@ -64,6 +162,7 @@ extension RootMenuViewController {
 
     tableView.reloadData()
     tableView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: false)
+    setupFilterButtons()
 
     pullUpMenu(withTopMostDiv: topMostDiv)
   }
@@ -216,24 +315,24 @@ extension RootMenuViewController {
 // MARK: - as UITableViewDataSource
 extension RootMenuViewController: UITableViewDataSource {
   func numberOfSections(in tableView: UITableView) -> Int {
-    return menuPart != nil ? menuPart!.count : 0
+    return menuPart != nil ? menuPart!.filteredSections.count : 0
   }
 
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return menuPart![section].items.count
+    return menuPart!.filteredSections[section].items.count
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "Root Menu Cell", for: indexPath) as! RootMenuTableViewCell
 
-    let item = menuItem(forIndexPath: indexPath)
+    let item = menuItemForRow(at: indexPath)
     cell.setup(with: item)
 
     return cell
   }
 
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    return menuPart![section].headerText
+    return menuPart!.filteredSections[section].headerText
   }
 }
 
@@ -242,8 +341,8 @@ extension RootMenuViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
 
-    let item = menuItem(forIndexPath: indexPath)
-    guard item.isAvailable else {
+    let item = menuItemForRow(at: indexPath)
+    guard item.state != .planning else {
       return
     }
 
@@ -268,7 +367,8 @@ extension RootMenuViewController: UITableViewDelegate {
     }
   }
 
-  func menuItem(forIndexPath indexPath: IndexPath) -> MenuItem {
-    return menuPart![indexPath.section].items[indexPath.row]
+  func menuItemForRow(at indexPath: IndexPath) -> MenuItem {
+    return menuPart!.filteredSections[indexPath.section].items[indexPath.row]
   }
 }
+

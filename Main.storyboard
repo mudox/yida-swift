@@ -52,25 +52,34 @@
                                     <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fQX-ky-uqR">
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fQX-ky-uqR">
                                             <rect key="frame" x="8" y="0.0" width="359" height="44"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="过滤" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZ4-na-mdI">
-                                                    <rect key="frame" x="0.0" y="13.5" width="29" height="17"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y1u-1c-y1m">
+                                                    <rect key="frame" x="0.0" y="7.5" width="65.5" height="29"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="4" translatesAutoresizingMaskIntoConstraints="NO" id="GDO-Hj-OsG">
-                                                    <rect key="frame" x="37" y="8" width="322" height="29"/>
-                                                    <segments>
-                                                        <segment title="可用"/>
-                                                        <segment title="置顶"/>
-                                                        <segment title="施工中"/>
-                                                        <segment title="规划中"/>
-                                                        <segment title="全部"/>
-                                                    </segments>
-                                                </segmentedControl>
+                                                    <state key="normal" title="可　用"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X2J-5b-RN9">
+                                                    <rect key="frame" x="73.5" y="7.5" width="65.5" height="29"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <state key="normal" title="置　顶"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ojt-rx-2Cb">
+                                                    <rect key="frame" x="147" y="7.5" width="65" height="29"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <state key="normal" title="施工中"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="74Y-jO-qzp">
+                                                    <rect key="frame" x="220" y="7.5" width="65.5" height="29"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <state key="normal" title="计划中"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b78-cp-lql">
+                                                    <rect key="frame" x="293.5" y="7.5" width="65.5" height="29"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <state key="normal" title="全　部"/>
+                                                </button>
                                             </subviews>
                                         </stackView>
                                     </subviews>
@@ -163,7 +172,11 @@
                         <outlet property="basicButton" destination="raE-GP-D7h" id="03C-BX-aYu"/>
                         <outlet property="basicDiv" destination="qky-so-8mB" id="5Sy-eu-hrb"/>
                         <outlet property="expandButton" destination="7mE-DU-s3I" id="kIo-EB-zhl"/>
-                        <outlet property="filterControl" destination="GDO-Hj-OsG" id="8ZC-Ax-gbl"/>
+                        <outlet property="filterAllButton" destination="b78-cp-lql" id="dMg-Qj-yrz"/>
+                        <outlet property="filterGoodToGoButton" destination="y1u-1c-y1m" id="qnF-ik-HPg"/>
+                        <outlet property="filterPinnedButton" destination="X2J-5b-RN9" id="Fwv-AK-AHg"/>
+                        <outlet property="filterPlanningButton" destination="74Y-jO-qzp" id="HtW-Ae-oAQ"/>
+                        <outlet property="filterWorkingInProcessButton" destination="ojt-rx-2Cb" id="B5n-WY-tvp"/>
                         <outlet property="frameworkButton" destination="ioh-7W-M1H" id="H0e-4p-kb1"/>
                         <outlet property="frameworkDiv" destination="l3C-j8-1k1" id="oxU-pJ-7Rg"/>
                         <outlet property="tableView" destination="xo1-qV-MHC" id="6bM-vi-IMd"/>
@@ -173,6 +186,11 @@
                         <outletCollection property="overlayButtons" destination="raE-GP-D7h" collectionClass="NSMutableArray" id="bxb-Oh-lQP"/>
                         <outletCollection property="overlayButtons" destination="5dC-Y8-xxP" collectionClass="NSMutableArray" id="rZr-fh-yFZ"/>
                         <outletCollection property="overlayDivs" destination="jGe-VL-frR" collectionClass="NSMutableArray" id="ZUu-Yu-uoL"/>
+                        <outletCollection property="filterButtons" destination="b78-cp-lql" collectionClass="NSMutableArray" id="kPN-c6-C1x"/>
+                        <outletCollection property="filterButtons" destination="74Y-jO-qzp" collectionClass="NSMutableArray" id="hvX-p1-qRq"/>
+                        <outletCollection property="filterButtons" destination="ojt-rx-2Cb" collectionClass="NSMutableArray" id="lcE-oU-gNN"/>
+                        <outletCollection property="filterButtons" destination="X2J-5b-RN9" collectionClass="NSMutableArray" id="sMv-YZ-1dY"/>
+                        <outletCollection property="filterButtons" destination="y1u-1c-y1m" collectionClass="NSMutableArray" id="jM5-kr-RUA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iCi-oi-iLr" userLabel="First Responder" sceneMemberID="firstResponder"/>

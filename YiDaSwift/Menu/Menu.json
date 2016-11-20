@@ -162,7 +162,7 @@
   "advanced": [
 
     {
-      "headerText": "段落",
+      "headerText": "网络请求",
       "items": [{
         "title": "标题",
         "subtitle": "副标题",
@@ -172,33 +172,13 @@
         "title": "标题",
         "subtitle": "副标题",
         "storyboardName": "",
-        "viewControllerReferenceID": ""
-      }]
-    },
-
-    {
-      "headerText": "自动布局",
-      "items": [{
-        "title": "静态布局",
-        "subtitle": "常见使用场景的演示",
-        "storyboardName": "AutoLayout",
-        "viewControllerReferenceID": ""
-      }, {
-        "title": "自动布局与滚动视图",
-        "subtitle": "滚动视图对于自动布局约束有着特殊的规则",
-        "storyboardName": "AutoLayout",
-        "viewControllerReferenceID": ""
-      }, {
-        "title": "自动布局与动画",
-        "subtitle": "通过在运行时改变约束的优先级实现让 UI 元素动起来",
-        "storyboardName": "AutoLayout",
         "viewControllerReferenceID": ""
       }]
     }
 
   ],
 
-  "3rd party frameworks": [
+  "framework": [
 
     {
       "headerText": "动画库",
@@ -206,9 +186,25 @@
         "title": "Facebook Pop 动画库",
         "subtitle": "Pop 动画库 Sprint, Decay, Basic 动画演示",
         "storyboardName": "PopAnimation",
-        "viewControllerReferenceID": "Pop Animation Playground"
+        "viewControllerReferenceID": "Pop Animation Playground",
+        "state": "Pinned"
       }, {
         "title": "Spring 动画库",
+        "subtitle": "副标题",
+        "storyboardName": "",
+        "viewControllerReferenceID": ""
+      }]
+    },
+
+    {
+      "headerText": "网络库",
+      "items": [{
+        "title": "Alamofire",
+        "subtitle": "跑马灯，陈列柜效果",
+        "storyboardName": "",
+        "viewControllerReferenceID": ""
+      }, {
+        "title": "标题",
         "subtitle": "副标题",
         "storyboardName": "",
         "viewControllerReferenceID": ""

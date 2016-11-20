@@ -24,8 +24,8 @@ class RootMenuTableViewCell: UITableViewCell {
       UIColor(white: 1, alpha: 0).cgColor
     ]
     layer.locations = [0, 0.65, 1] as [NSNumber]
-    layer.startPoint = CGPoint(x: 0, y: 0.55)
-    layer.endPoint = CGPoint(x: 1, y: 0.45)
+    layer.startPoint = CGPoint(x: 0, y: 0.45)
+    layer.endPoint = CGPoint(x: 1, y: 0.55)
 
     return layer
   }()
@@ -134,5 +134,13 @@ class RootMenuTableViewCell: UITableViewCell {
 
   override func layoutSubviews() {
     focusGradientLayer.frame = bounds
+  }
+
+  override func tintColorDidChange() {
+    focusGradientLayer.colors = [
+      theWindow.tintColor.cgColor,
+      theWindow.tintColor.withAlphaComponent(0.6).cgColor,
+      UIColor(white: 1, alpha: 0).cgColor
+    ]
   }
 }
