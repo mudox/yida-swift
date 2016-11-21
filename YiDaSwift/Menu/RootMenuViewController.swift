@@ -36,8 +36,14 @@ class RootMenuViewController: UIViewController {
   @IBOutlet weak var filterGoodToGoButton: UIButton!
   @IBOutlet weak var filterPinnedButton: UIButton!
   @IBOutlet weak var filterWorkingInProcessButton: UIButton!
+
   @IBOutlet weak var filterPlanningButton: UIButton!
   @IBOutlet weak var filterAllButton: UIButton!
+  @IBOutlet weak var goodToGoCountLabel: UILabel!
+  @IBOutlet weak var pinnedCountLabel: UILabel!
+  @IBOutlet weak var workingInProcessCountLabel: UILabel!
+  @IBOutlet weak var planningCountLabel: UILabel!
+  @IBOutlet weak var allCountLabel: UILabel!
 
   var baseThemeColor: UIColor?
 
@@ -169,14 +175,30 @@ extension RootMenuViewController {
     assert(baseThemeColor != nil)
     theWindow.tintColor = baseThemeColor
 
-    // reset filtering
+    // reset filtering button states
     filterAllButton.isSelected = true
+    filterAllButton.isEnabled = (menuPart!.itemCounts[.all]! != 0)
+
     filterGoodToGoButton.isSelected = false
+    filterGoodToGoButton.isEnabled = (menuPart!.itemCounts[.goodToGo]! != 0)
+
     filterPinnedButton.isSelected = false
+    filterPinnedButton.isEnabled = (menuPart!.itemCounts[.pinned]! != 0)
+
     filterWorkingInProcessButton.isSelected = false
+    filterWorkingInProcessButton.isEnabled = (menuPart!.itemCounts[.workingInProcess]! != 0)
+
     filterPlanningButton.isSelected = false
+    filterPlanningButton.isEnabled = (menuPart!.itemCounts[.planning]! != 0)
 
     menuPart!.filterItemStates = .all
+
+    // udpate count
+    goodToGoCountLabel.text = "\(menuPart!.itemCounts[.goodToGo]!)"
+    pinnedCountLabel.text = "\(menuPart!.itemCounts[.pinned]!)"
+    workingInProcessCountLabel.text = "\(menuPart!.itemCounts[.workingInProcess]!)"
+    planningCountLabel.text = "\(menuPart!.itemCounts[.planning]!)"
+    allCountLabel.text = "\(menuPart!.itemCounts[.all]!)"
 
     tableView.reloadData()
     tableView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: false)
@@ -306,6 +328,8 @@ extension RootMenuViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    expandButton.accessibilityIdentifier = "Expand Root Menu"
 
     // install overlay divisions
     overlayDivs.forEach {

@@ -15,7 +15,8 @@
 		849BB32C35BD42EC28D9A469 /* Pods_YiDaSwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD8D66618FBD43833B0CA76 /* Pods_YiDaSwiftTests.framework */; };
 		9C973BB040284637104E414D /* EarlGrey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B3C6E38431DA033A0B9FB4 /* EarlGrey.framework */; };
 		E03A8560B19570FB2FD50D93 /* Pods_YiDaSwift_ClassRoster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7484BE99A859AA9E25824C7C /* Pods_YiDaSwift_ClassRoster.framework */; };
-		F41BA6141DDD647100327C53 /* MainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BA6131DDD647100327C53 /* MainTests.swift */; };
+		F417E8941DE24CD60019AA34 /* RootMenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F417E8931DE24CD60019AA34 /* RootMenuTests.swift */; };
+		F41BA6141DDD647100327C53 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BA6131DDD647100327C53 /* Main.swift */; };
 		F41BA6181DDD672900327C53 /* EarlGrey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BA6161DDD64D700327C53 /* EarlGrey.swift */; };
 		F41BA6201DDD682F00327C53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BA61F1DDD682F00327C53 /* AppDelegate.swift */; };
 		F41BA6221DDD682F00327C53 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BA6211DDD682F00327C53 /* ViewController.swift */; };
@@ -180,9 +181,10 @@
 		A3B83ABDEB80072227B5C4EA /* Pods-YiDaSwift-ClassRoster.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YiDaSwift-ClassRoster.release.xcconfig"; path = "Pods/Target Support Files/Pods-YiDaSwift-ClassRoster/Pods-YiDaSwift-ClassRoster.release.xcconfig"; sourceTree = "<group>"; };
 		B8EABFB1646AF7EADADEB5E4 /* Pods-EarlGreyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EarlGreyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EarlGreyTests/Pods-EarlGreyTests.release.xcconfig"; sourceTree = "<group>"; };
 		BC9C9809E5F85602C51C5DD2 /* Pods-ClassRoster.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassRoster.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClassRoster/Pods-ClassRoster.release.xcconfig"; sourceTree = "<group>"; };
+		F417E8931DE24CD60019AA34 /* RootMenuTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootMenuTests.swift; sourceTree = "<group>"; };
 		F41BA6091DDD61C600327C53 /* EarlGreyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EarlGreyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F41BA60D1DDD61C600327C53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F41BA6131DDD647100327C53 /* MainTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTests.swift; sourceTree = "<group>"; };
+		F41BA6131DDD647100327C53 /* Main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		F41BA6151DDD64D700327C53 /* BridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		F41BA6161DDD64D700327C53 /* EarlGrey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EarlGrey.swift; sourceTree = "<group>"; };
 		F41BA61D1DDD682F00327C53 /* ClassRoster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassRoster.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -363,7 +365,8 @@
 			children = (
 				F41BA6151DDD64D700327C53 /* BridgingHeader.h */,
 				F41BA6161DDD64D700327C53 /* EarlGrey.swift */,
-				F41BA6131DDD647100327C53 /* MainTests.swift */,
+				F41BA6131DDD647100327C53 /* Main.swift */,
+				F417E8931DE24CD60019AA34 /* RootMenuTests.swift */,
 				F41BA60D1DDD61C600327C53 /* Info.plist */,
 			);
 			path = EarlGreyTests;
@@ -1191,7 +1194,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F41BA6181DDD672900327C53 /* EarlGrey.swift in Sources */,
-				F41BA6141DDD647100327C53 /* MainTests.swift in Sources */,
+				F41BA6141DDD647100327C53 /* Main.swift in Sources */,
+				F417E8941DE24CD60019AA34 /* RootMenuTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
