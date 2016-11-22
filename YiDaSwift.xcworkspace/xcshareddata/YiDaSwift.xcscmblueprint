@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "E6C12CF5AF697E5868712AAC2581E3ED94F2CCA4",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "E6C12CF5AF697E5868712AAC2581E3ED94F2CCA4" : 9223372036854775807,
+    "768AED3E0A9F1B9D21ECFF0850C2567D12A39378" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "5B171898-C227-4E12-918D-BBDF06CFFFAC",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "E6C12CF5AF697E5868712AAC2581E3ED94F2CCA4" : "YiDaSwift\/",
+    "768AED3E0A9F1B9D21ECFF0850C2567D12A39378" : "..\/ProjectBootstrap"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "YiDaSwift",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "YiDaSwift.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:mudox\/xcode-project-startup-files.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "768AED3E0A9F1B9D21ECFF0850C2567D12A39378"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:mudox\/yida-swift.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E6C12CF5AF697E5868712AAC2581E3ED94F2CCA4"
+    }
+  ]
+}
